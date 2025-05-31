@@ -20,11 +20,17 @@ module.exports = {
         'float-normal': "float 7s ease-in-out infinite",
         orbit: "orbit 15s linear infinite",
         blink: "blink 1s step-end infinite",
+        'spin-slow': "spin 15s linear infinite",
+        'spin-reverse-slow': "spin-reverse 20s linear infinite",
       },
       keyframes: {
         blink: {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0' },
+        },
+        'spin-reverse': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(-360deg)' },
         },
         blob: {
           "0%": {
