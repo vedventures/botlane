@@ -70,7 +70,7 @@ const Header = () => {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <Image 
-                src="/botlogo.png" 
+                src="/botlanelogo.svg" 
                 alt="BotLane Logo" 
                 width={150} 
                 height={50} 
