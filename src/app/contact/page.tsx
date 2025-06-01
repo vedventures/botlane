@@ -421,131 +421,199 @@ export default function ContactPage() {
 </section>
 
 {/* FAQ Section */}
-<section className="py-10 md:py-16 bg-gray-50">
-  <div className="container mx-auto px-4 max-w-6xl">
-    <div className="text-center mb-8 md:mb-12">
-      <div className="inline-block mb-4">
-        <div className="px-4 py-1.5 rounded-full bg-white shadow-sm border border-purple-100 text-xs font-medium text-gray-600">
+<section className="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+  {/* Decorative elements */}
+  <div className="absolute top-0 right-0 w-64 h-64 bg-purple-100 rounded-full filter blur-3xl opacity-30 -translate-y-1/2 translate-x-1/4"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-100 rounded-full filter blur-3xl opacity-30 translate-y-1/2 -translate-x-1/4"></div>
+  <div className="absolute top-1/4 left-10 w-6 h-6 bg-purple-600 rounded-full opacity-20"></div>
+  <div className="absolute top-1/3 right-10 w-4 h-4 bg-indigo-600 rounded-full opacity-20"></div>
+  <div className="absolute bottom-1/4 left-1/4 w-8 h-8 bg-purple-400 rounded-full opacity-20"></div>
+  <div className="absolute bottom-1/3 right-1/4 w-5 h-5 bg-indigo-400 rounded-full opacity-20"></div>
+  
+  <div className="container mx-auto px-4 max-w-6xl relative z-10">
+    <div className="text-center mb-10 md:mb-16">
+      <div className="inline-block mb-4 animate-fade-in-up">
+        <div className="px-5 py-2 rounded-full bg-white shadow-md border border-purple-200 text-xs font-medium text-gray-600 flex items-center">
+          <span className="w-2 h-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full mr-2"></span>
           Common Questions
+          <span className="w-2 h-2 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full ml-2"></span>
         </div>
       </div>
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1e1b4b] mb-3 md:mb-4">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1e1b4b] mb-4 md:mb-5 relative inline-block">
         Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Questions</span>
+        <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-70"></div>
       </h2>
       <p className="text-[#4b5563] text-lg max-w-2xl mx-auto">
         Find quick answers to common questions about our services and process.
       </p>
     </div>
     
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto relative">
+      {/* Decorative connector line */}
+      <div className="absolute left-8 top-6 bottom-6 w-0.5 bg-gradient-to-b from-purple-200 via-indigo-200 to-purple-100 hidden md:block"></div>
+      
+      {/* Mobile decorative elements */}
+      <div className="absolute -left-4 top-1/4 w-8 h-8 bg-indigo-50 rounded-full opacity-50 md:hidden"></div>
+      <div className="absolute -right-4 bottom-1/4 w-10 h-10 bg-purple-50 rounded-full opacity-50 md:hidden"></div>
+      
       {/* FAQ Accordion */}
-      <div className="space-y-4">
+      <div className="space-y-5">
         {/* FAQ Item 1 */}
-        <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:border-purple-100 transition-colors">
+        <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:border-purple-200 transition-all duration-300 hover:shadow-purple-100/30 transform hover:-translate-y-1 group/faq">
           <details className="group">
-            <summary className="flex items-center justify-between p-4 sm:p-6 cursor-pointer">
-              <h3 className="text-lg font-semibold text-[#1e1b4b] group-open:text-purple-600 transition-colors">How quickly can you respond to inquiries?</h3>
-              <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
-                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <summary className="flex items-center justify-between p-5 sm:p-7 cursor-pointer select-none relative">
+              <div className="flex items-center">
+                <span className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center mr-4 group-open:scale-110 transition-transform duration-300 hidden md:flex">
+                  <svg className="h-4 w-4 text-[#7c3aed]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </span>
+                <h3 className="text-lg font-semibold text-[#1e1b4b] group-open:text-purple-600 transition-colors group-hover:text-purple-700">How quickly can you respond to inquiries?</h3>
+              </div>
+              <div className="relative flex-shrink-0 ml-4 w-6 h-6 rounded-full bg-gradient-to-r from-indigo-50 to-purple-50 group-hover:from-indigo-100 group-hover:to-purple-100 flex items-center justify-center transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 m-auto w-4 h-4 text-purple-600 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 m-auto w-4 h-4 text-purple-600 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 12H6" />
                 </svg>
-              </span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </summary>
-            <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-0">
-              <p className="text-[#4b5563]">
-                We typically respond to all inquiries within 24 business hours. For urgent matters, please call our support line directly at <a href="tel:+919979972714" className="text-purple-600 font-medium">+91 9979972714</a>.
-              </p>
+            <div className="px-5 sm:px-7 pb-6 pt-2 sm:pl-20">
+              <div className="bg-gradient-to-r from-indigo-50/50 to-purple-50/50 p-4 rounded-lg">
+                <p className="text-[#4b5563] leading-relaxed">
+                  We typically respond to all inquiries within 24 business hours. For urgent matters, please call our support line directly at <a href="tel:+919979972714" className="text-purple-600 font-medium hover:text-purple-700 transition-colors underline decoration-purple-200 hover:decoration-purple-500">+91 9979972714</a>.
+                </p>
+              </div>
             </div>
           </details>
         </div>
         
         {/* FAQ Item 2 */}
-        <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:border-purple-100 transition-colors">
+        <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:border-purple-200 transition-all duration-300 hover:shadow-purple-100/30 transform hover:-translate-y-1 group/faq">
           <details className="group">
-            <summary className="flex items-center justify-between p-6 cursor-pointer">
-              <h3 className="text-lg font-semibold text-[#1e1b4b] group-open:text-purple-600 transition-colors">Do you offer consultations?</h3>
-              <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
-                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <summary className="flex items-center justify-between p-5 sm:p-7 cursor-pointer select-none relative">
+              <div className="flex items-center">
+                <span className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center mr-4 group-open:scale-110 transition-transform duration-300 hidden md:flex">
+                  <svg className="h-4 w-4 text-[#7c3aed]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </span>
+                <h3 className="text-lg font-semibold text-[#1e1b4b] group-open:text-purple-600 transition-colors group-hover:text-purple-700">Do you offer consultations?</h3>
+              </div>
+              <div className="relative flex-shrink-0 ml-4 w-6 h-6 rounded-full bg-gradient-to-r from-indigo-50 to-purple-50 group-hover:from-indigo-100 group-hover:to-purple-100 flex items-center justify-center transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 m-auto w-4 h-4 text-purple-600 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 m-auto w-4 h-4 text-purple-600 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 12H6" />
                 </svg>
-              </span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </summary>
-            <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-0">
-              <p className="text-[#4b5563]">
-                Yes, we offer free 30-minute initial consultations to discuss your project requirements and how we can help. You can book a consultation directly through our online calendar or contact us to schedule a time that works for you.
-              </p>
+            <div className="px-5 sm:px-7 pb-6 pt-2 sm:pl-20">
+              <div className="bg-gradient-to-r from-indigo-50/50 to-purple-50/50 p-4 rounded-lg">
+                <p className="text-[#4b5563] leading-relaxed">
+                  Yes, we offer free 30-minute initial consultations to discuss your project requirements and how we can help. You can book a consultation directly through our online calendar or contact us to schedule a time that works for you.
+                </p>
+              </div>
             </div>
           </details>
         </div>
         
         {/* FAQ Item 3 */}
-        <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:border-purple-100 transition-colors">
+        <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:border-purple-200 transition-all duration-300 hover:shadow-purple-100/30 transform hover:-translate-y-1 group/faq">
           <details className="group">
-            <summary className="flex items-center justify-between p-6 cursor-pointer">
-              <h3 className="text-lg font-semibold text-[#1e1b4b] group-open:text-purple-600 transition-colors">What information should I provide for a quote?</h3>
-              <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
-                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <summary className="flex items-center justify-between p-5 sm:p-7 cursor-pointer select-none relative">
+              <div className="flex items-center">
+                <span className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center mr-4 group-open:scale-110 transition-transform duration-300 hidden md:flex">
+                  <svg className="h-4 w-4 text-[#7c3aed]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </span>
+                <h3 className="text-lg font-semibold text-[#1e1b4b] group-open:text-purple-600 transition-colors group-hover:text-purple-700">What information should I provide for a quote?</h3>
+              </div>
+              <div className="relative flex-shrink-0 ml-4 w-6 h-6 rounded-full bg-gradient-to-r from-indigo-50 to-purple-50 group-hover:from-indigo-100 group-hover:to-purple-100 flex items-center justify-center transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 m-auto w-4 h-4 text-purple-600 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 m-auto w-4 h-4 text-purple-600 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 12H6" />
                 </svg>
-              </span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </summary>
-            <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-0">
-              <p className="text-[#4b5563]">
-                To provide an accurate quote, please share your project scope, timeline, specific requirements, and any existing materials or references. The more details you can provide, the more precise our estimate will be. We can sign an NDA before discussing sensitive project details if required.
-              </p>
+            <div className="px-5 sm:px-7 pb-6 pt-2 sm:pl-20">
+              <div className="bg-gradient-to-r from-indigo-50/50 to-purple-50/50 p-4 rounded-lg">
+                <p className="text-[#4b5563] leading-relaxed">
+                  To provide an accurate quote, please share your project scope, timeline, specific requirements, and any existing materials or references. The more details you can provide, the more precise our estimate will be. We can sign an NDA before discussing sensitive project details if required.
+                </p>
+              </div>
             </div>
           </details>
         </div>
         
         {/* FAQ Item 4 */}
-        <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:border-purple-100 transition-colors">
+        <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:border-purple-200 transition-all duration-300 hover:shadow-purple-100/30 transform hover:-translate-y-1 group/faq">
           <details className="group">
-            <summary className="flex items-center justify-between p-6 cursor-pointer">
-              <h3 className="text-lg font-semibold text-[#1e1b4b] group-open:text-purple-600 transition-colors">Do you work with international clients?</h3>
-              <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
-                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <summary className="flex items-center justify-between p-5 sm:p-7 cursor-pointer select-none relative">
+              <div className="flex items-center">
+                <span className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center mr-4 group-open:scale-110 transition-transform duration-300 hidden md:flex">
+                  <svg className="h-4 w-4 text-[#7c3aed]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </span>
+                <h3 className="text-lg font-semibold text-[#1e1b4b] group-open:text-purple-600 transition-colors group-hover:text-purple-700">Do you work with international clients?</h3>
+              </div>
+              <div className="relative flex-shrink-0 ml-4 w-6 h-6 rounded-full bg-gradient-to-r from-indigo-50 to-purple-50 group-hover:from-indigo-100 group-hover:to-purple-100 flex items-center justify-center transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 m-auto w-4 h-4 text-purple-600 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 m-auto w-4 h-4 text-purple-600 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 12H6" />
                 </svg>
-              </span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </summary>
-            <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-0">
-              <p className="text-[#4b5563]">
-                Absolutely! We work with clients globally and have experience managing projects across different time zones. Our team is equipped to handle international collaborations through various communication tools and flexible scheduling to accommodate different time zones.
-              </p>
+            <div className="px-5 sm:px-7 pb-6 pt-2 sm:pl-20">
+              <div className="bg-gradient-to-r from-indigo-50/50 to-purple-50/50 p-4 rounded-lg">
+                <p className="text-[#4b5563] leading-relaxed">
+                  Absolutely! We work with clients globally and have experience managing projects across different time zones. Our team is equipped to handle international collaborations through various communication tools and flexible scheduling to accommodate different time zones.
+                </p>
+              </div>
             </div>
           </details>
         </div>
         
         {/* FAQ Item 5 */}
-        <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:border-purple-100 transition-colors">
+        <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:border-purple-200 transition-all duration-300 hover:shadow-purple-100/30 transform hover:-translate-y-1 group/faq">
           <details className="group">
-            <summary className="flex items-center justify-between p-6 cursor-pointer">
-              <h3 className="text-lg font-semibold text-[#1e1b4b] group-open:text-purple-600 transition-colors">What is your typical project timeline?</h3>
-              <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
-                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <summary className="flex items-center justify-between p-5 sm:p-7 cursor-pointer select-none relative">
+              <div className="flex items-center">
+                <span className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center mr-4 group-open:scale-110 transition-transform duration-300 hidden md:flex">
+                  <svg className="h-4 w-4 text-[#7c3aed]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </span>
+                <h3 className="text-lg font-semibold text-[#1e1b4b] group-open:text-purple-600 transition-colors group-hover:text-purple-700">What is your typical project timeline?</h3>
+              </div>
+              <div className="relative flex-shrink-0 ml-4 w-6 h-6 rounded-full bg-gradient-to-r from-indigo-50 to-purple-50 group-hover:from-indigo-100 group-hover:to-purple-100 flex items-center justify-center transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 m-auto w-4 h-4 text-purple-600 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 m-auto w-4 h-4 text-purple-600 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 12H6" />
                 </svg>
-              </span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </summary>
-            <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-0">
-              <p className="text-[#4b5563]">
-                Project timelines vary based on scope and complexity. Simple websites might take 2-4 weeks, while complex web applications or AI solutions can take 2-6 months. During our initial consultation, we&apos;ll provide a detailed timeline specific to your project requirements and milestones.
-              </p>
+            <div className="px-5 sm:px-7 pb-6 pt-2 sm:pl-20">
+              <div className="bg-gradient-to-r from-indigo-50/50 to-purple-50/50 p-4 rounded-lg">
+                <p className="text-[#4b5563] leading-relaxed">
+                  Project timelines vary based on scope and complexity. Simple websites might take 2-4 weeks, while complex web applications or AI solutions can take 2-6 months. During our initial consultation, we&apos;ll provide a detailed timeline specific to your project requirements and milestones.
+                </p>
+              </div>
             </div>
           </details>
         </div>
