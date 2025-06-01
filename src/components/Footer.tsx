@@ -200,7 +200,7 @@ const Footer = () => {
                 <div>
                   <span className="text-[#4b5563] text-xs sm:text-sm font-medium block mb-0.5">Registered Address</span>
                   <span className="text-[#64748b] text-xs sm:text-sm leading-relaxed block">
-                    #17, 2nd Floor, 7th Main Road,<br />Indiranagar, Bangalore - 560038<br />India
+                    #17, 2nd Floor, Vedanta Ventures,<br />7th Main Road, Indiranagar,<br />Bangalore - 560038, India
                   </span>
                 </div>
               </li>

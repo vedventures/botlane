@@ -160,7 +160,7 @@ export default function ContactPage() {
                   <select
                     id="service"
                     name="service"
-                    className="block w-full px-4 py-3 text-gray-700 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="block w-full px-4 py-3 text-gray-700 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent appearance-none"
                     required
                     defaultValue=""
                   >
@@ -298,8 +298,14 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-[#1e1b4b] font-semibold text-base">Email Us</h4>
-                    <a href="mailto:founder@botlane.io" className="text-[#4b5563] text-sm hover:text-[#7c3aed] transition-colors flex items-center group-hover:font-medium">
+                    <a href="mailto:founder@botlane.io" className="text-[#4b5563] text-sm hover:text-[#7c3aed] transition-colors flex items-center group-hover:font-medium mb-1">
                       founder@botlane.io
+                      <svg className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </a>
+                    <a href="mailto:support@botlane.io" className="text-[#4b5563] text-sm hover:text-[#7c3aed] transition-colors flex items-center group-hover:font-medium">
+                      support@botlane.io
                       <svg className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
@@ -307,7 +313,7 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="mt-3 pl-16">
-                  <p className="text-xs text-gray-500">For general inquiries and project discussions</p>
+                  <p className="text-xs text-gray-500">For general inquiries, project discussions, and technical support</p>
                 </div>
               </div>
               
@@ -346,9 +352,9 @@ export default function ContactPage() {
                   <div>
                     <h4 className="text-[#1e1b4b] font-semibold text-base">Registered Address</h4>
                     <p className="text-[#4b5563] text-sm leading-relaxed">
-                      #17, 2nd Floor, 7th Main Road,<br />
-                      Indiranagar, Bangalore - 560038<br />
-                      India
+                      #17, 2nd Floor, Vedanta Ventures,<br />
+                      7th Main Road, Indiranagar,<br />
+                      Bangalore - 560038, India
                     </p>
                   </div>
                 </div>
