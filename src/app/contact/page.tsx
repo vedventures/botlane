@@ -1,17 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export const metadata = {
   title: 'Contact Us | BotLane',
-  description: 'Get in touch with BotLane for custom AI solutions, web development, and digital marketing services. We\'re here to help your business grow.',
+  description: 'Get in touch with BotLane for custom AI solutions, web development, and digital marketing services. We&apos;re here to help your business grow.',
 };
 
 export default function ContactPage() {
   return (
     <main className="bg-white overflow-hidden">
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-16 md:py-20">
+      <section className="relative overflow-hidden py-10 md:py-20">
   {/* Decorative background elements */}
   <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50"></div>
   <div className="absolute top-0 left-0 w-full h-full opacity-10">
@@ -29,17 +28,15 @@ export default function ContactPage() {
       <div className="inline-block mb-4">
         <div className="flex items-center justify-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm border border-purple-100">
           <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
-          <span className="text-xs font-medium text-gray-600">We're available to help you</span>
+          <span className="text-xs font-medium text-gray-600">We&apos;re available to help you</span>
         </div>
       </div>
       
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1e1b4b] mb-6 leading-tight">
-        Let's Start a <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Conversation</span>
+        Let&apos;s Start a <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Conversation</span>
       </h1>
       
-      <p className="text-[#4b5563] text-lg md:text-xl max-w-2xl mx-auto mb-8">
-        Have a project in mind or questions about our services? We're here to transform your ideas into reality.
-      </p>
+      <p className="text-[#4b5563] text-lg max-w-3xl mx-auto">Whether you&apos;re looking for a custom solution or have questions about our services, we&apos;d love to hear from you. Our team is ready to assist you with any inquiries.</p>
       
       <div className="flex flex-wrap justify-center gap-4 mb-8">
         <a href="#contact-form" className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-purple-500/20 transition-all transform hover:-translate-y-0.5">
@@ -77,9 +74,9 @@ export default function ContactPage() {
   </div>
 </section>
 
-<section className="py-16 relative z-10" id="contact-form">
+<section className="py-10 md:py-16 relative z-10" id="contact-form">
   <div className="container mx-auto px-4 max-w-6xl">
-    <div className="flex flex-col lg:flex-row gap-12">
+    <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
       {/* Left Column - Contact Form */}
       <div className="w-full lg:w-7/12">
         <div className="relative">
@@ -92,7 +89,7 @@ export default function ContactPage() {
             {/* Gradient top border */}
             <div className="h-1.5 w-full bg-gradient-to-r from-indigo-600 to-purple-600"></div>
             
-            <div className="p-8 md:p-10">
+            <div className="p-5 sm:p-8 md:p-10">
               <div className="flex items-center mb-8">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mr-4">
                   <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -101,12 +98,12 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold text-[#1e1b4b]">Send Us a Message</h2>
-                  <p className="text-gray-500 text-sm">We'll get back to you within 24 hours</p>
+                  <p className="text-gray-500 text-sm">We&apos;ll get back to you within 24 hours</p>
                 </div>
               </div>
               
               <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   {/* Name Field */}
                   <div className="relative">
                     <input
@@ -178,7 +175,7 @@ export default function ContactPage() {
                     htmlFor="service" 
                     className="absolute left-4 -top-2.5 text-xs font-medium text-gray-500 bg-gray-50 px-1 z-10"
                   >
-                    Service You're Interested In
+                    Service You&apos;re Interested In
                   </label>
                   <div className="absolute right-4 top-3.5 pointer-events-none">
                     <svg className="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -188,9 +185,9 @@ export default function ContactPage() {
                 </div>
                 
                 {/* Budget Range */}
-                <div className="space-y-2">
+                <div className="space-y-1 sm:space-y-2">
                   <label className="text-xs font-medium text-gray-500">Estimated Budget Range</label>
-                  <div className="grid grid-cols-4 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
                     <div className="relative">
                       <input type="radio" id="budget-1" name="budget" value="small" className="peer absolute opacity-0 w-full h-full cursor-pointer z-10" />
                       <label htmlFor="budget-1" className="block text-center px-3 py-2 text-xs border border-gray-200 rounded-lg peer-checked:bg-purple-50 peer-checked:border-purple-300 peer-checked:text-purple-700 transition-all cursor-pointer">
@@ -237,14 +234,12 @@ export default function ContactPage() {
                 
                 {/* File Upload */}
                 <div className="relative">
-                  <div className="w-full px-4 py-8 text-center border-2 border-dashed border-gray-300 rounded-lg bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors">
+                  <div className="relative border-2 border-dashed border-gray-200 rounded-lg p-4 sm:p-6 transition-all hover:border-purple-200 hover:bg-gray-100 transition-colors">
                     <input type="file" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
                     <svg className="w-10 h-10 mx-auto mb-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
-                    <p className="text-sm text-gray-500">
-                      <span className="font-medium text-purple-600">Click to upload</span> or drag and drop
-                    </p>
+                    <p className="text-sm text-gray-500 mt-2">Drag and drop files here, or click to select files. We&apos;ll handle the rest.</p>
                     <p className="text-xs text-gray-400 mt-1">
                       PDF, DOC, PNG, JPG up to 10MB
                     </p>
@@ -272,7 +267,7 @@ export default function ContactPage() {
 
           <div className="mt-4 pt-4 border-t border-gray-100">
             <p className="text-xs text-gray-500">
-              For urgent inquiries outside business hours, please email us and we'll get back to you as soon as possible.
+              For urgent inquiries outside business hours, please email us and we&apos;ll get back to you as soon as possible.
             </p>
           </div>
         </div>
@@ -282,7 +277,7 @@ export default function ContactPage() {
       <div className="w-full lg:w-5/12">
         <div className="space-y-8">
           <div className="relative">
-            <h3 className="text-xl font-bold text-[#1e1b4b] mb-6 flex items-center">
+            <h3 className="text-lg sm:text-xl font-bold text-[#1e1b4b] mb-4 sm:mb-6 flex items-center">
               <span className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mr-3 shadow-md">
                 <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -362,7 +357,7 @@ export default function ContactPage() {
           </div>
           
           {/* Schedule a Call Section */}
-          <div className="bg-gradient-to-br from-indigo-600 to-purple-600 p-8 rounded-xl text-white relative overflow-hidden">
+          <div className="bg-gradient-to-br from-indigo-600 to-purple-600 p-5 sm:p-8 rounded-xl text-white relative overflow-hidden">
             <div className="absolute inset-0 opacity-10 bg-[url('/grid-pattern.svg')]"></div>
             
             <div className="relative z-10">
@@ -390,7 +385,7 @@ export default function ContactPage() {
           </div>
           
           {/* Working Hours */}
-          <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+          <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 mt-6 sm:mt-8">
             <h3 className="text-[#1e1b4b] font-semibold text-base mb-4 flex items-center">
               <svg className="w-5 h-5 mr-2 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -398,7 +393,7 @@ export default function ContactPage() {
               Working Hours
             </h3>
             
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               <div className="flex justify-between items-center pb-2 border-b border-gray-100">
                 <span className="text-[#4b5563] text-sm">Monday - Friday</span>
                 <span className="text-[#1e1b4b] font-medium text-sm bg-indigo-50 px-3 py-1 rounded-full">9:00 AM - 6:00 PM IST</span>
@@ -420,15 +415,15 @@ export default function ContactPage() {
 </section>
 
 {/* FAQ Section */}
-<section className="py-16 bg-gray-50">
+<section className="py-10 md:py-16 bg-gray-50">
   <div className="container mx-auto px-4 max-w-6xl">
-    <div className="text-center mb-12">
+    <div className="text-center mb-8 md:mb-12">
       <div className="inline-block mb-4">
         <div className="px-4 py-1.5 rounded-full bg-white shadow-sm border border-purple-100 text-xs font-medium text-gray-600">
           Common Questions
         </div>
       </div>
-      <h2 className="text-3xl md:text-4xl font-bold text-[#1e1b4b] mb-4">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1e1b4b] mb-3 md:mb-4">
         Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Questions</span>
       </h2>
       <p className="text-[#4b5563] text-lg max-w-2xl mx-auto">
@@ -442,18 +437,18 @@ export default function ContactPage() {
         {/* FAQ Item 1 */}
         <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:border-purple-100 transition-colors">
           <details className="group">
-            <summary className="flex items-center justify-between p-6 cursor-pointer">
+            <summary className="flex items-center justify-between p-4 sm:p-6 cursor-pointer">
               <h3 className="text-lg font-semibold text-[#1e1b4b] group-open:text-purple-600 transition-colors">How quickly can you respond to inquiries?</h3>
               <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
                 <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 12H6" />
                 </svg>
               </span>
             </summary>
-            <div className="px-6 pb-6 pt-0">
+            <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-0">
               <p className="text-[#4b5563]">
                 We typically respond to all inquiries within 24 business hours. For urgent matters, please call our support line directly at <a href="tel:+919979972714" className="text-purple-600 font-medium">+91 9979972714</a>.
               </p>
@@ -468,14 +463,14 @@ export default function ContactPage() {
               <h3 className="text-lg font-semibold text-[#1e1b4b] group-open:text-purple-600 transition-colors">Do you offer consultations?</h3>
               <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
                 <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 12H6" />
                 </svg>
               </span>
             </summary>
-            <div className="px-6 pb-6 pt-0">
+            <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-0">
               <p className="text-[#4b5563]">
                 Yes, we offer free 30-minute initial consultations to discuss your project requirements and how we can help. You can book a consultation directly through our online calendar or contact us to schedule a time that works for you.
               </p>
@@ -490,14 +485,14 @@ export default function ContactPage() {
               <h3 className="text-lg font-semibold text-[#1e1b4b] group-open:text-purple-600 transition-colors">What information should I provide for a quote?</h3>
               <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
                 <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 12H6" />
                 </svg>
               </span>
             </summary>
-            <div className="px-6 pb-6 pt-0">
+            <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-0">
               <p className="text-[#4b5563]">
                 To provide an accurate quote, please share your project scope, timeline, specific requirements, and any existing materials or references. The more details you can provide, the more precise our estimate will be. We can sign an NDA before discussing sensitive project details if required.
               </p>
@@ -512,14 +507,14 @@ export default function ContactPage() {
               <h3 className="text-lg font-semibold text-[#1e1b4b] group-open:text-purple-600 transition-colors">Do you work with international clients?</h3>
               <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
                 <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 12H6" />
                 </svg>
               </span>
             </summary>
-            <div className="px-6 pb-6 pt-0">
+            <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-0">
               <p className="text-[#4b5563]">
                 Absolutely! We work with clients globally and have experience managing projects across different time zones. Our team is equipped to handle international collaborations through various communication tools and flexible scheduling to accommodate different time zones.
               </p>
@@ -534,16 +529,16 @@ export default function ContactPage() {
               <h3 className="text-lg font-semibold text-[#1e1b4b] group-open:text-purple-600 transition-colors">What is your typical project timeline?</h3>
               <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
                 <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 12H6" />
                 </svg>
               </span>
             </summary>
-            <div className="px-6 pb-6 pt-0">
+            <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-0">
               <p className="text-[#4b5563]">
-                Project timelines vary based on scope and complexity. Simple websites might take 2-4 weeks, while complex web applications or AI solutions can take 2-6 months. During our initial consultation, we'll provide a detailed timeline specific to your project requirements and milestones.
+                Project timelines vary based on scope and complexity. Simple websites might take 2-4 weeks, while complex web applications or AI solutions can take 2-6 months. During our initial consultation, we&apos;ll provide a detailed timeline specific to your project requirements and milestones.
               </p>
             </div>
           </details>
@@ -552,11 +547,11 @@ export default function ContactPage() {
       
       <div className="text-center mt-10">
         <p className="text-[#4b5563]">
-          Don't see your question here?{" "}
+          Don&apos;t see your question here?{" "}
           <Link href="#contact-form" className="text-[#7c3aed] font-medium hover:underline">
             Contact us directly
           </Link>{" "}
-          and we'll be happy to help.
+          and we&apos;ll be happy to help.
         </p>
       </div>
     </div>
@@ -564,24 +559,24 @@ export default function ContactPage() {
 </section>
 
 {/* CTA Section */}
-<section className="py-16 bg-white">
+<section className="py-10 md:py-16 bg-white">
   <div className="container mx-auto px-4 max-w-6xl">
     <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl overflow-hidden relative">
       <div className="absolute inset-0 opacity-10 bg-[url('/grid-pattern.svg')]"></div>
       <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mt-10 -mr-10"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full -mb-10 -ml-10"></div>
       
-      <div className="relative z-10 px-8 py-12 md:p-16 text-center md:text-left flex flex-col md:flex-row items-center justify-between">
+      <div className="relative z-10 px-5 sm:px-8 py-8 sm:py-12 md:p-16 text-center md:text-left flex flex-col md:flex-row items-center justify-between">
         <div className="mb-8 md:mb-0 md:mr-8">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Ready to transform your digital presence?
           </h2>
           <p className="text-indigo-100 max-w-xl">
-            Let's collaborate to bring your vision to life. Our team is ready to help you achieve your goals.  
+            Let&apos;s collaborate to bring your vision to life. Our team is ready to help you achieve your goals.  
           </p>
         </div>
         <div className="flex-shrink-0">
-          <a href="#contact-form" className="inline-flex items-center px-6 py-3.5 bg-white text-indigo-700 font-medium rounded-lg hover:bg-indigo-50 transition-colors transform hover:-translate-y-0.5 shadow-lg">
+          <a href="#contact-form" className="inline-flex items-center px-4 sm:px-6 py-2.5 sm:py-3.5 bg-white text-indigo-700 font-medium rounded-lg hover:bg-indigo-50 transition-colors transform hover:-translate-y-0.5 shadow-lg">
             <span>Start Your Project</span>
             <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
