@@ -166,9 +166,14 @@ const Footer = () => {
                     </div>
                     <div>
                       <span className="text-[#4b5563] text-xs sm:text-sm font-medium block mb-0.5">Email Us</span>
-                      <a href="mailto:founder@botlane.io" className="text-[#64748b] hover:text-[#7c3aed] transition-colors">
-                        founder@botlane.io
-                      </a>
+                      <div className="flex flex-col">
+                        <a href="mailto:founder@botlane.io" className="text-[#64748b] hover:text-[#7c3aed] transition-colors">
+                          founder@botlane.io
+                        </a>
+                        <a href="mailto:support@botlane.io" className="text-[#64748b] hover:text-[#7c3aed] transition-colors">
+                          support@botlane.io
+                        </a>
+                      </div>
                     </div>
                   </div>
                   
