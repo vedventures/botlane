@@ -69,15 +69,15 @@ export default function ShopifyDevelopment() {
               
               <p className="text-gray-600 text-sm sm:text-base mt-2 max-w-xl">We bring your e-commerce vision to life with custom Shopify development. From theme customization to app integration, we&apos;ll create a unique store that drives sales and enhances user experience.</p>
               
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <Link href="/contact" className="flex-1 sm:flex-none px-4 sm:px-6 py-2.5 rounded-lg bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed] text-white font-semibold hover:opacity-90 transition-opacity text-sm inline-flex items-center justify-center">
+              <div className="flex flex-row gap-3 pt-2">
+                <Link href="/contact" className="flex-none px-4 sm:px-6 py-2.5 rounded-lg bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed] text-white font-semibold hover:opacity-90 transition-opacity text-sm inline-flex items-center justify-center">
                   Get Started
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </Link>
-                <Link href="#features" className="flex-1 sm:flex-none px-4 sm:px-6 py-2.5 rounded-lg border border-[#8b5cf6] text-[#8b5cf6] font-semibold hover:bg-[#8b5cf6]/5 transition-colors text-sm inline-flex items-center justify-center">
-                  View Features
+                <Link href="#pricing" className="flex-none px-4 sm:px-6 py-2.5 rounded-lg border border-[#8b5cf6] text-[#8b5cf6] font-semibold hover:bg-[#8b5cf6]/5 transition-colors text-sm inline-flex items-center justify-center">
+                  View Prices
                 </Link>
               </div>
               

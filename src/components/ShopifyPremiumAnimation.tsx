@@ -4,7 +4,7 @@ import React from 'react';
 
 const ShopifyPremiumAnimation: React.FC = () => {
   return (
-    <div className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] p-6 bg-[#f5f3ff] rounded-xl shadow-2xl overflow-hidden border border-[#8b5cf6]/30">
+    <div className="relative w-full h-[320px] sm:h-[450px] md:h-[500px] p-6 bg-[#f5f3ff] rounded-xl shadow-2xl overflow-hidden border border-[#8b5cf6]/30">
       {/* Decorative Gradient Border Effect (Pseudo-element or extra divs) */}
       <div className="absolute inset-0 rounded-xl border-2 border-transparent pointer-events-none animate-pulse-slow"
            style={{ borderColor: 'transparent', backgroundImage: 'linear-gradient(white, white), linear-gradient(to right, #8b5cf6, #7c3aed)', backgroundOrigin: 'border-box', backgroundClip: 'content-box, border-box' }}></div>
