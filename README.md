@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BotLane - AI Marketing Agency
+
+A premium Next.js website for BotLane, a US-based AI marketing agency specializing in AI-native marketing solutions that scale.
+
+## Tech Stack
+
+- **Next.js 14** with App Router
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling with custom cyber-themed design system
+- **Geist Font** integration via next/font
+- **Framer Motion** for smooth animations
+- **PostCSS** for CSS processing
+- **Vercel** ready for deployment
+
+## Features
+
+- 🚀 **Immersive Hero Section** - Futuristic design with interactive elements
+- 🎨 **Cyber Theme** - Custom color palette with neon accents and glowing effects
+- ⚡ **Performance Optimized** - Built for speed with Next.js 14
+- 📱 **Fully Responsive** - Works perfectly on all devices
+- 🎭 **Advanced Animations** - Smooth transitions and micro-interactions
+- 🌐 **SEO Ready** - Optimized meta tags and structure
+
+## Services
+
+### StackLayer™ - Intelligent Growth Infrastructure
+Foundational systems that power AI-native marketing at scale, including conversion-optimized websites, attribution systems, CRM automations, and data dashboards.
+
+### FlowStack™ - Automated Customer Journeys
+AI-guided prospect journeys from cold to converted, featuring AI sales agents, chatbots, email workflows, and marketing automation.
+
+### ScaleEngine™ - Performance-Led Growth Acceleration
+Data-driven growth loops with AI content engines, enhanced paid performance, conversion optimization, and predictive analytics.
 
 ## Getting Started
 
-First, run the development server:
-
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+src/
+├── app/
+│   ├── layout.tsx       # Root layout with Geist font integration
+│   ├── page.tsx         # Homepage
+│   └── globals.css      # Global styles and animations
+└── components/
+    └── HeroSection.tsx  # Futuristic hero section component
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is optimized for Vercel deployment:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+```
 
-## Deploy on Vercel
+## Design System
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Primary Colors**: Cyber Blue (#00d4ff), Cyber Purple (#8b5cf6), Cyber Pink (#f472b6)
+- **Background**: Dark theme with gradient overlays
+- **Typography**: Geist Sans for body text, Geist Mono for code
+- **Animations**: Custom keyframes for glow effects, floating elements, and grid movement
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+Private project for BotLane AI Marketing Agency.
