@@ -124,21 +124,33 @@ const HeroSection = () => {
         </motion.div>
 
         {/* CTA Buttons */}
-        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
           <motion.button
-            className="group relative px-10 py-4 bg-premium-blue/10 border border-premium-blue/30 text-premium-blue font-medium text-base rounded-sm backdrop-blur-sm overflow-hidden transition-all duration-500 hover:bg-premium-blue hover:text-dark-bg"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            className="group relative px-12 py-5 bg-gradient-to-r from-slate-900/80 to-slate-800/80 border border-slate-700/50 text-white font-light text-base tracking-wide backdrop-blur-md overflow-hidden transition-all duration-700 hover:border-slate-600/70 hover:shadow-lg hover:shadow-slate-900/20"
+            whileHover={{ scale: 1.01, y: -1 }}
+            whileTap={{ scale: 0.99 }}
           >
-            <span className="relative z-10">Schedule Consultation</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-800/20 to-slate-700/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <span className="relative z-10 flex items-center gap-2">
+              Schedule Consultation
+              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
           </motion.button>
           
           <motion.button
-            className="group px-10 py-4 bg-transparent border border-gray-500/30 text-gray-300 font-medium text-base rounded-sm transition-all duration-500 hover:border-premium-silver/50 hover:text-premium-silver"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            className="group relative px-12 py-5 bg-transparent border border-slate-600/40 text-slate-300 font-light text-base tracking-wide transition-all duration-700 hover:border-slate-500/60 hover:text-slate-200 hover:bg-slate-900/20"
+            whileHover={{ scale: 1.01, y: -1 }}
+            whileTap={{ scale: 0.99 }}
           >
-            View Portfolio
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-800/10 to-slate-700/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <span className="relative z-10 flex items-center gap-2">
+              View Portfolio
+              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </span>
           </motion.button>
         </motion.div>
 
