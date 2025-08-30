@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import Navbar from './Navbar'
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -40,6 +41,9 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark-bg">
+      {/* Navbar */}
+      <Navbar />
+      
       {/* Animated Background Grid */}
       <div className="absolute inset-0 cyber-grid opacity-15" />
       
