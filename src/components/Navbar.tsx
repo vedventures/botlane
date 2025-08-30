@@ -53,9 +53,9 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* CTA Button */}
+        {/* CTA Button - Hidden on mobile, visible on desktop */}
         <motion.button
-          className="group relative px-8 py-3 bg-gradient-to-r from-slate-900/80 to-slate-800/80 border border-slate-700/50 text-white font-light text-sm tracking-wide backdrop-blur-md overflow-hidden transition-all duration-700 hover:border-slate-600/70 hover:shadow-lg hover:shadow-slate-900/20"
+          className="hidden md:block group relative px-8 py-3 bg-gradient-to-r from-slate-900/80 to-slate-800/80 border border-slate-700/50 text-white font-light text-sm tracking-wide backdrop-blur-md overflow-hidden transition-all duration-700 hover:border-slate-600/70 hover:shadow-lg hover:shadow-slate-900/20"
           whileHover={{ scale: 1.01, y: -1 }}
           whileTap={{ scale: 0.99 }}
         >

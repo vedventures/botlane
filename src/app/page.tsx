@@ -1,6 +1,7 @@
 import HeroSection from '@/components/HeroSection'
 import WhyBotLane from '@/components/WhyBotLane'
 import ServicesOverview from '@/components/ServicesOverview'
+import ClientWins from '@/components/ClientWins'
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <HeroSection />
       <WhyBotLane />
       <ServicesOverview />
+      <ClientWins />
     </main>
   )
 }

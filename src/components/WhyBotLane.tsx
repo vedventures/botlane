@@ -29,7 +29,7 @@ const WhyBotLane = () => {
   const pillars = [
     {
       icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       ),
@@ -38,7 +38,7 @@ const WhyBotLane = () => {
     },
     {
       icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
@@ -47,7 +47,7 @@ const WhyBotLane = () => {
     },
     {
       icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
@@ -56,7 +56,7 @@ const WhyBotLane = () => {
     },
     {
       icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
         </svg>
       ),
@@ -66,7 +66,7 @@ const WhyBotLane = () => {
   ]
 
   return (
-    <section className="relative py-24 bg-gradient-to-b from-dark-bg to-dark-surface overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:py-24 bg-gradient-to-b from-dark-bg to-dark-surface overflow-hidden">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -75,25 +75,25 @@ const WhyBotLane = () => {
         }} />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-14 md:mb-16"
         >
           {/* Main Headline */}
           <motion.div variants={itemVariants} className="mb-6">
-            <h2 className="text-4xl md:text-5xl font-light text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4">
               AI-Native. <span className="text-premium-platinum">Outcome-Obsessed.</span>
             </h2>
-            <div className="h-px w-24 bg-gradient-to-r from-transparent via-premium-blue to-transparent mx-auto" />
+            <div className="h-px w-16 sm:w-20 md:w-24 bg-gradient-to-r from-transparent via-premium-blue to-transparent mx-auto" />
           </motion.div>
 
           {/* Subheadline */}
           <motion.div variants={itemVariants}>
-            <p className="text-xl md:text-2xl text-premium-silver font-light tracking-wide">
+            <p className="text-lg sm:text-xl md:text-2xl text-premium-silver font-light tracking-wide px-4">
               Smarter execution. Measurable outcomes.
             </p>
           </motion.div>
@@ -105,13 +105,13 @@ const WhyBotLane = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
         >
           {pillars.map((pillar, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative p-8 bg-gradient-to-b from-dark-surface/80 to-dark-bg/60 border border-premium-blue/20 backdrop-blur-sm transition-all duration-500 hover:border-premium-blue/40 hover:bg-dark-surface/90 overflow-hidden"
+              className="group relative p-6 sm:p-8 bg-gradient-to-b from-dark-surface/80 to-dark-bg/60 border border-premium-blue/20 backdrop-blur-sm transition-all duration-500 hover:border-premium-blue/40 hover:bg-dark-surface/90 overflow-hidden"
               whileHover={{ 
                 y: -8, 
                 scale: 1.02,
@@ -162,7 +162,7 @@ const WhyBotLane = () => {
 
               {/* Icon with enhanced animation */}
               <motion.div 
-                className="mb-6 text-premium-blue/70 group-hover:text-premium-blue transition-colors duration-300 relative z-10"
+                className="mb-4 sm:mb-6 text-premium-blue/70 group-hover:text-premium-blue transition-colors duration-300 relative z-10"
                 whileHover={{ 
                   scale: 1.1, 
                   rotate: [0, -5, 5, 0],
@@ -174,7 +174,7 @@ const WhyBotLane = () => {
 
               {/* Title with subtle animation */}
               <motion.h3 
-                className="text-xl font-medium text-white mb-4 group-hover:text-premium-platinum transition-colors duration-300 relative z-10"
+                className="text-lg sm:text-xl font-medium text-white mb-3 sm:mb-4 group-hover:text-premium-platinum transition-colors duration-300 relative z-10"
                 whileHover={{ x: 2 }}
               >
                 {pillar.title}
@@ -182,7 +182,7 @@ const WhyBotLane = () => {
 
               {/* Description with stagger effect */}
               <motion.p 
-                className="text-cool-gray font-light leading-relaxed group-hover:text-premium-silver transition-colors duration-300 relative z-10"
+                className="text-sm sm:text-base text-cool-gray font-light leading-relaxed group-hover:text-premium-silver transition-colors duration-300 relative z-10"
                 whileHover={{ x: 4 }}
                 transition={{ delay: 0.1 }}
               >

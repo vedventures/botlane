@@ -51,7 +51,7 @@ const ServicesOverview = () => {
   ]
 
   return (
-    <section className="relative py-32 bg-gradient-to-b from-dark-surface to-dark-bg overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-to-b from-dark-surface to-dark-bg overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         {/* Subtle Grid Pattern */}
@@ -67,24 +67,24 @@ const ServicesOverview = () => {
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-premium-purple/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Section Header */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
           <motion.div variants={itemVariants} className="mb-6">
-            <h2 className="text-4xl md:text-5xl font-light text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4">
               What We <span className="text-premium-blue">Offer</span>
             </h2>
-            <div className="h-px w-32 bg-gradient-to-r from-transparent via-premium-blue to-transparent mx-auto" />
+            <div className="h-px w-24 sm:w-28 md:w-32 bg-gradient-to-r from-transparent via-premium-blue to-transparent mx-auto" />
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <p className="text-xl md:text-2xl text-premium-silver font-light tracking-wide max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl text-premium-silver font-light tracking-wide max-w-3xl mx-auto px-4">
               Three comprehensive service stacks designed to transform your marketing infrastructure
             </p>
           </motion.div>
@@ -96,7 +96,7 @@ const ServicesOverview = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-14 md:mb-16"
         >
           {services.map((service, index) => (
             <motion.div
@@ -105,7 +105,7 @@ const ServicesOverview = () => {
               className="group relative h-full"
             >
               <motion.div
-                className={`relative h-full p-8 bg-gradient-to-br ${service.gradient} border border-premium-blue/20 backdrop-blur-sm transition-all duration-700 hover:border-premium-blue/40 hover:bg-opacity-80 overflow-hidden flex flex-col`}
+                className={`relative h-full p-6 sm:p-8 bg-gradient-to-br ${service.gradient} border border-premium-blue/20 backdrop-blur-sm transition-all duration-700 hover:border-premium-blue/40 hover:bg-opacity-80 overflow-hidden flex flex-col`}
                 whileHover={{ 
                   y: -6, 
                   scale: 1.02,
@@ -127,17 +127,17 @@ const ServicesOverview = () => {
                   className="relative z-10 mb-3"
                   whileHover={{ x: 2 }}
                 >
-                  <h3 className="text-2xl font-medium text-white group-hover:text-premium-platinum transition-colors duration-300">
+                  <h3 className="text-xl sm:text-2xl font-medium text-white group-hover:text-premium-platinum transition-colors duration-300">
                     {service.name}
                   </h3>
-                  <p className="text-premium-blue font-light text-sm tracking-wide">
+                  <p className="text-premium-blue font-light text-xs sm:text-sm tracking-wide">
                     {service.subtitle}
                   </p>
                 </motion.div>
 
                 {/* Description */}
                 <motion.p 
-                  className="relative z-10 text-cool-gray font-light leading-relaxed mb-6 group-hover:text-premium-silver transition-colors duration-300 flex-grow"
+                  className="relative z-10 text-sm sm:text-base text-cool-gray font-light leading-relaxed mb-4 sm:mb-6 group-hover:text-premium-silver transition-colors duration-300 flex-grow"
                   whileHover={{ x: 4 }}
                   transition={{ delay: 0.1 }}
                 >
@@ -151,7 +151,7 @@ const ServicesOverview = () => {
                   transition={{ delay: 0.2 }}
                 >
                   {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center text-sm">
+                    <div key={featureIndex} className="flex items-center text-xs sm:text-sm">
                       <div className="w-1.5 h-1.5 bg-premium-blue/60 rounded-full mr-3 group-hover:bg-premium-blue transition-colors duration-300" />
                       <span className="text-premium-silver/80 group-hover:text-premium-silver transition-colors duration-300">
                         {feature}
@@ -187,7 +187,7 @@ const ServicesOverview = () => {
         >
           <motion.div variants={itemVariants}>
             <motion.button
-              className="group relative px-12 py-5 bg-gradient-to-r from-slate-900/80 to-slate-800/80 border border-slate-700/50 text-white font-light text-base tracking-wide backdrop-blur-md overflow-hidden transition-all duration-700 hover:border-slate-600/70 hover:shadow-lg hover:shadow-slate-900/20"
+              className="group relative w-full sm:w-auto px-8 sm:px-10 md:px-12 py-4 sm:py-5 bg-gradient-to-r from-slate-900/80 to-slate-800/80 border border-slate-700/50 text-white font-light text-sm sm:text-base tracking-wide backdrop-blur-md overflow-hidden transition-all duration-700 hover:border-slate-600/70 hover:shadow-lg hover:shadow-slate-900/20"
               whileHover={{ scale: 1.01, y: -1 }}
               whileTap={{ scale: 0.99 }}
             >
