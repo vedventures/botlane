@@ -93,16 +93,18 @@ const HeroSection = () => {
       >
         {/* Company Name */}
         <motion.div variants={itemVariants} className="mb-6">
-          <h1 className="text-7xl md:text-8xl font-light text-white tracking-tight leading-none">
-            Bot<span className="font-semibold bg-premium-gradient bg-clip-text text-transparent">Lane</span>
+          <h1 className="text-5xl md:text-6xl font-light tracking-tight leading-tight">
+            <span className="text-white">Intelligent </span>
+            <span className="bg-premium-gradient bg-clip-text text-transparent font-medium animate-glow">Marketing </span>
+            <span className="text-premium-silver">Infrastructure</span>
           </h1>
-          <div className="h-px w-24 bg-premium-blue/60 mx-auto mt-6" />
+          <div className="h-px w-32 bg-gradient-to-r from-transparent via-premium-blue to-transparent mx-auto mt-6" />
         </motion.div>
 
         {/* Tagline */}
         <motion.div variants={itemVariants} className="mb-8">
           <p className="text-xl md:text-2xl text-premium-platinum font-light tracking-wide leading-relaxed">
-            Intelligent Marketing Infrastructure
+            AI-Native Marketing That Scales
           </p>
           <p className="text-lg md:text-xl text-cool-gray font-light mt-2">
             Built for Scale, Designed for Growth
