@@ -90,7 +90,7 @@ const HeroSection = () => {
 
       {/* Main Content */}
       <motion.div
-        className="relative z-10 text-center px-4 sm:px-6 md:px-8 max-w-5xl mx-auto"
+        className="relative z-10 text-center px-4 sm:px-6 md:px-8 max-w-5xl mx-auto pt-20 sm:pt-0"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
