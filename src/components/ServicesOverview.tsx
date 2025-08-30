@@ -77,14 +77,15 @@ const ServicesOverview = () => {
           className="text-center mb-12 sm:mb-16 md:mb-20"
         >
           <motion.div variants={itemVariants} className="mb-6">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4">
-              What We <span className="text-premium-blue">Offer</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight leading-tight text-white mb-4">
+              <span className="text-white">What We </span>
+              <span className="bg-premium-gradient bg-clip-text text-transparent font-medium animate-glow">Offer</span>
             </h2>
             <div className="h-px w-24 sm:w-28 md:w-32 bg-gradient-to-r from-transparent via-premium-blue to-transparent mx-auto" />
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <p className="text-lg sm:text-xl md:text-2xl text-premium-silver font-light tracking-wide max-w-3xl mx-auto px-4">
+            <p className="text-lg sm:text-xl md:text-2xl text-premium-platinum font-light tracking-wide leading-relaxed max-w-3xl mx-auto px-4">
               Three comprehensive service stacks designed to transform your marketing infrastructure
             </p>
           </motion.div>

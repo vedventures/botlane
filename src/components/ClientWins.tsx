@@ -35,7 +35,7 @@ const ClientWins = () => {
     },
     {
       stat: "-22%",
-      description: "CPA via predictive bidding",
+      description: "We don't just optimize campaigns—we build intelligent systems that learn, adapt, and scale automatically.",
       category: "Cost Optimization",
       gradient: "from-premium-purple/20 to-accent-teal/10"
     },
@@ -74,14 +74,15 @@ const ClientWins = () => {
           className="text-center mb-12 sm:mb-16 md:mb-20"
         >
           <motion.div variants={itemVariants} className="mb-6">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4">
-              Outcomes We've <span className="text-premium-blue">Delivered</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight leading-tight text-white mb-4">
+              <span className="text-white">Outcomes We&apos;ve </span>
+              <span className="bg-premium-gradient bg-clip-text text-transparent font-medium animate-glow">Delivered</span>
             </h2>
             <div className="h-px w-24 sm:w-28 md:w-32 bg-gradient-to-r from-transparent via-premium-blue to-transparent mx-auto" />
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <p className="text-lg sm:text-xl md:text-2xl text-premium-silver font-light tracking-wide max-w-3xl mx-auto px-4">
+            <p className="text-lg sm:text-xl md:text-2xl text-premium-platinum font-light tracking-wide leading-relaxed max-w-3xl mx-auto px-4">
               Real results from real clients who trusted us with their growth
             </p>
           </motion.div>
@@ -208,7 +209,7 @@ const ClientWins = () => {
         >
           <motion.div variants={itemVariants}>
             <p className="text-base sm:text-lg text-premium-silver/80 font-light max-w-2xl mx-auto px-4">
-              These results represent just a fraction of the transformations we've delivered. 
+              We don&apos;t just run campaigns—we build intelligent systems that continuously optimize themselves. formations we&apos;ve delivered. 
               <span className="text-premium-blue"> Your success story could be next.</span>
             </p>
           </motion.div>

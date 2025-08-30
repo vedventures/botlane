@@ -85,15 +85,16 @@ const WhyBotLane = () => {
         >
           {/* Main Headline */}
           <motion.div variants={itemVariants} className="mb-6">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4">
-              AI-Native. <span className="text-premium-platinum">Outcome-Obsessed.</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight leading-tight text-white mb-4">
+              <span className="text-white">AI-Native. </span>
+              <span className="bg-premium-gradient bg-clip-text text-transparent font-medium animate-glow">Outcome-Obsessed.</span>
             </h2>
             <div className="h-px w-16 sm:w-20 md:w-24 bg-gradient-to-r from-transparent via-premium-blue to-transparent mx-auto" />
           </motion.div>
 
           {/* Subheadline */}
           <motion.div variants={itemVariants}>
-            <p className="text-lg sm:text-xl md:text-2xl text-premium-silver font-light tracking-wide px-4">
+            <p className="text-lg sm:text-xl md:text-2xl text-premium-platinum font-light tracking-wide leading-relaxed px-4">
               Smarter execution. Measurable outcomes.
             </p>
           </motion.div>

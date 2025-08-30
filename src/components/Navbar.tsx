@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import Image from 'next/image'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -27,9 +28,11 @@ const Navbar = () => {
           whileHover={{ scale: 1.05 }}
           className="flex items-center"
         >
-          <img 
+          <Image 
             src="/botlogo.svg" 
             alt="BotLane Logo" 
+            width={40}
+            height={40}
             className="h-10 w-auto"
           />
         </motion.div>
