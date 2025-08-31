@@ -3,16 +3,17 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Shop', href: '#shop' },
-    { name: 'Services', href: '#services' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'Shop', href: '/shop' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/contact' },
   ]
 
   return (
@@ -24,34 +25,36 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="flex items-center"
-        >
-          <Image 
-            src="/botlogo.svg" 
-            alt="BotLane Logo" 
-            width={40}
-            height={40}
-            className="h-10 w-auto"
-          />
-        </motion.div>
+        <Link href="/">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center cursor-pointer"
+          >
+            <Image 
+              src="/botlogo.svg" 
+              alt="BotLane Logo" 
+              width={40}
+              height={40}
+              className="h-10 w-auto"
+            />
+          </motion.div>
+        </Link>
 
         {/* Desktop Navigation - Centered */}
         <div className="hidden md:flex items-center justify-center flex-1">
           <div className="flex items-center space-x-8">
             {navItems.map((item, index) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                className="text-gray-300 hover:text-premium-blue transition-colors duration-300 font-medium"
-                whileHover={{ y: -2 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index + 0.5 }}
-              >
-                {item.name}
-              </motion.a>
+              <Link key={item.name} href={item.href}>
+                <motion.span
+                  className="text-gray-300 hover:text-premium-blue transition-colors duration-300 font-medium cursor-pointer"
+                  whileHover={{ y: -2 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * index + 0.5 }}
+                >
+                  {item.name}
+                </motion.span>
+              </Link>
             ))}
           </div>
         </div>
@@ -94,14 +97,14 @@ const Navbar = () => {
       >
         <div className="px-6 py-4 space-y-4">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
               className="block text-gray-300 hover:text-premium-blue transition-colors duration-300 font-medium py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
           <button className="w-full mt-4 px-6 py-3 bg-premium-blue/10 border border-premium-blue/30 text-premium-blue font-medium rounded-sm backdrop-blur-sm transition-all duration-300 hover:bg-premium-blue hover:text-dark-bg">
             Get Started

@@ -1,0 +1,435 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { useState } from 'react'
+import Navbar from '../../components/Navbar'
+
+export default function Shop() {
+  const [selectedCategory, setSelectedCategory] = useState('All')
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  }
+
+  const categories = ['All', 'Audits', 'Automation', 'Content', 'Analytics', 'Consulting']
+
+  const products = [
+    {
+      id: 1,
+      name: "AI Marketing Audit",
+      price: "$497",
+      originalPrice: "$697",
+      category: "Audits",
+      badge: "Most Popular",
+      description: "Comprehensive analysis of your current marketing infrastructure with AI-powered recommendations and actionable insights.",
+      features: ["Complete funnel analysis", "AI optimization recommendations", "Growth strategy roadmap", "30-day implementation plan", "Competitor analysis", "ROI projections"],
+      deliverables: "14-day delivery",
+      rating: 4.9,
+      reviews: 127
+    },
+    {
+      id: 2,
+      name: "Marketing Automation Setup",
+      price: "$1,997",
+      originalPrice: "$2,497",
+      category: "Automation",
+      badge: "Enterprise",
+      description: "Full marketing automation system setup with AI-driven workflows, customer journey mapping, and advanced segmentation.",
+      features: ["Email automation sequences", "Lead scoring system", "CRM integration", "Performance tracking dashboard", "A/B testing framework", "Multi-channel workflows"],
+      deliverables: "21-day delivery",
+      rating: 4.8,
+      reviews: 89
+    },
+    {
+      id: 3,
+      name: "AI Content Engine",
+      price: "$997",
+      originalPrice: "$1,297",
+      category: "Content",
+      badge: "Best Value",
+      description: "Automated content creation system powered by AI for consistent, high-converting marketing materials across all channels.",
+      features: ["Content calendar automation", "AI copywriting templates", "Brand voice training", "Multi-channel distribution", "SEO optimization", "Performance analytics"],
+      deliverables: "10-day delivery",
+      rating: 4.9,
+      reviews: 156
+    },
+    {
+      id: 4,
+      name: "Growth Analytics Dashboard",
+      price: "$697",
+      originalPrice: "$897",
+      category: "Analytics",
+      badge: "New",
+      description: "Custom analytics dashboard with real-time insights, predictive modeling, and automated reporting for data-driven decisions.",
+      features: ["Real-time data visualization", "Predictive analytics", "Custom KPI tracking", "Automated reports", "Integration with 50+ tools", "Mobile app access"],
+      deliverables: "7-day delivery",
+      rating: 4.7,
+      reviews: 73
+    },
+    {
+      id: 5,
+      name: "Strategic Consulting Package",
+      price: "$2,497",
+      originalPrice: "$2,997",
+      category: "Consulting",
+      badge: "Premium",
+      description: "One-on-one strategic consulting with our senior marketing experts to develop a comprehensive growth strategy.",
+      features: ["4 hours of 1:1 consulting", "Custom strategy development", "Market analysis", "Competitive positioning", "Implementation roadmap", "3-month follow-up"],
+      deliverables: "Ongoing support",
+      rating: 5.0,
+      reviews: 42
+    },
+    {
+      id: 6,
+      name: "Complete Marketing Stack",
+      price: "$3,997",
+      originalPrice: "$5,497",
+      category: "All",
+      badge: "Bundle",
+      description: "Everything you need to build a world-class marketing operation. Includes audit, automation, content engine, and analytics.",
+      features: ["All individual services", "Priority support", "Dedicated account manager", "Monthly optimization calls", "Custom integrations", "1-year maintenance"],
+      deliverables: "30-day delivery",
+      rating: 4.9,
+      reviews: 34
+    }
+  ]
+
+  const filteredProducts = selectedCategory === 'All' 
+    ? products 
+    : products.filter(product => product.category === selectedCategory || product.category === 'All')
+
+  return (
+    <div className="min-h-screen bg-dark-bg">
+      <Navbar />
+      
+      {/* Background Elements */}
+      <div className="absolute inset-0 cyber-grid opacity-5" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-premium-blue/5 to-transparent" />
+      
+      <div className="relative z-10 pt-32 sm:pt-40 pb-12 sm:pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Enhanced Hero Section */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-center mb-20"
+          >
+            <motion.div variants={itemVariants} className="mb-6 sm:mb-8">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight leading-tight text-white mb-4 sm:mb-6">
+                <span className="text-white">Premium </span>
+                <span className="bg-premium-gradient bg-clip-text text-transparent font-medium animate-glow">Marketing </span>
+                <span className="text-premium-silver">Solutions</span>
+              </h1>
+              <div className="h-px w-24 sm:w-32 md:w-40 bg-gradient-to-r from-transparent via-premium-blue to-transparent mx-auto" />
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="mb-6 sm:mb-8">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-premium-platinum font-light tracking-wide leading-relaxed max-w-4xl mx-auto mb-3 sm:mb-4 px-4">
+                Transform your business with AI-powered marketing infrastructure
+              </p>
+              <p className="text-base sm:text-lg text-premium-silver/80 font-light max-w-2xl mx-auto px-4">
+                From comprehensive audits to complete automation - everything you need to scale your marketing operations
+              </p>
+            </motion.div>
+
+            {/* Trust Indicators */}
+            <motion.div variants={itemVariants} className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 px-4">
+              <div className="flex items-center gap-2 text-premium-silver/60">
+                <svg className="w-5 h-5 text-premium-blue" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm font-light">500+ Clients Served</span>
+              </div>
+              <div className="flex items-center gap-2 text-premium-silver/60">
+                <svg className="w-5 h-5 text-premium-blue" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm font-light">30-Day Money Back</span>
+              </div>
+              <div className="flex items-center gap-2 text-premium-silver/60">
+                <svg className="w-5 h-5 text-premium-blue" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm font-light">Expert Support</span>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Category Filter */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 sm:mb-16 px-4"
+          >
+            {categories.map((category) => (
+              <motion.button
+                key={category}
+                variants={itemVariants}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-light border backdrop-blur-md transition-all duration-300 hover:scale-105 ${
+                  selectedCategory === category
+                    ? 'bg-premium-blue/20 border-premium-blue/60 text-premium-blue shadow-lg shadow-premium-blue/20'
+                    : 'border-premium-blue/30 text-premium-silver hover:border-premium-blue/50 hover:bg-premium-blue/10'
+                }`}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {category}
+              </motion.button>
+            ))}
+          </motion.div>
+
+          {/* Products Grid */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+          >
+            {filteredProducts.map((product, index) => (
+              <motion.div
+                key={product.id}
+                variants={itemVariants}
+                className="group relative bg-gradient-to-br from-slate-900/50 to-slate-800/30 backdrop-blur-md border border-premium-blue/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 hover:border-premium-blue/40 transition-all duration-500 hover:shadow-lg hover:shadow-premium-blue/10"
+                whileHover={{ y: -8 }}
+              >
+                {/* Badge */}
+                {product.badge && (
+                  <div className="absolute -top-2 sm:-top-3 left-4 sm:left-6 px-2 sm:px-3 py-1 bg-premium-blue text-white text-xs font-medium rounded-full">
+                    {product.badge}
+                  </div>
+                )}
+
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-premium-blue/5 to-premium-purple/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10">
+                  {/* Price Section */}
+                  <div className="mb-3 sm:mb-4 flex items-baseline gap-2 sm:gap-3">
+                    <span className="text-2xl sm:text-3xl lg:text-4xl font-light text-premium-blue">{product.price}</span>
+                    {product.originalPrice && (
+                      <span className="text-sm sm:text-lg text-premium-silver/50 line-through">{product.originalPrice}</span>
+                    )}
+                  </div>
+
+                  {/* Rating & Reviews */}
+                  <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                    <div className="flex items-center">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-600'}`} fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <span className="text-xs sm:text-sm text-premium-silver/70">{product.rating} ({product.reviews} reviews)</span>
+                  </div>
+
+                  {/* Product Name */}
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-medium text-white mb-3 sm:mb-4 group-hover:text-premium-blue transition-colors duration-300">
+                    {product.name}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm sm:text-base text-premium-silver/80 font-light mb-4 sm:mb-6 leading-relaxed">
+                    {product.description}
+                  </p>
+
+                  {/* Deliverables */}
+                  <div className="flex items-center gap-2 mb-4 sm:mb-6 text-premium-blue">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="text-xs sm:text-sm font-light">{product.deliverables}</span>
+                  </div>
+
+                  {/* Features */}
+                  <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+                    {product.features.slice(0, 4).map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-premium-blue mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-premium-silver/90 font-light text-xs sm:text-sm">{feature}</span>
+                      </li>
+                    ))}
+                    {product.features.length > 4 && (
+                      <li className="text-premium-blue/70 text-xs sm:text-sm font-light ml-6 sm:ml-8">
+                        +{product.features.length - 4} more features
+                      </li>
+                    )}
+                  </ul>
+
+                  {/* CTA Button */}
+                  <motion.button
+                    className="w-full group/btn relative px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-premium-blue/80 to-premium-purple/80 border border-premium-blue/50 text-white font-light text-xs sm:text-sm tracking-wide backdrop-blur-md overflow-hidden transition-all duration-700 hover:border-premium-blue/70 hover:shadow-lg hover:shadow-premium-blue/20"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-premium-blue/20 to-premium-purple/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-700" />
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      Get Started Now
+                      <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                  </motion.button>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Social Proof Section */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="mt-16 sm:mt-20 mb-12 sm:mb-16 text-center px-4"
+          >
+            <motion.div variants={itemVariants} className="mb-8 sm:mb-12">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-light text-white mb-3 sm:mb-4">
+                Trusted by <span className="text-premium-blue">500+</span> Growing Businesses
+              </h2>
+              <p className="text-sm sm:text-base text-premium-silver/80 font-light">Join companies that have transformed their marketing with our solutions</p>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+              {[
+                { metric: "300%", label: "Average ROI Increase", icon: "📈" },
+                { metric: "45 Days", label: "Average Payback Period", icon: "⚡" },
+                { metric: "98%", label: "Client Satisfaction Rate", icon: "⭐" }
+              ].map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-2xl sm:text-3xl mb-2">{stat.icon}</div>
+                  <div className="text-2xl sm:text-3xl font-light text-premium-blue mb-2">{stat.metric}</div>
+                  <div className="text-premium-silver/70 font-light text-xs sm:text-sm">{stat.label}</div>
+                </div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* FAQ Section */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="mt-16 sm:mt-20 mb-12 sm:mb-16 px-4"
+          >
+            <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-12">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-light text-white mb-3 sm:mb-4">
+                Frequently Asked <span className="text-premium-blue">Questions</span>
+              </h2>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
+              {[
+                {
+                  q: "How quickly can I see results?",
+                  a: "Most clients see initial improvements within 2-4 weeks of implementation. Full optimization typically takes 60-90 days."
+                },
+                {
+                  q: "Do you offer refunds?",
+                  a: "Yes, we offer a 30-day money-back guarantee if you're not satisfied with our service quality."
+                },
+                {
+                  q: "Can I upgrade or downgrade my package?",
+                  a: "Absolutely. You can adjust your package at any time to better fit your evolving business needs."
+                },
+                {
+                  q: "What kind of support do you provide?",
+                  a: "All packages include email support. Premium packages include dedicated account management and priority phone support."
+                }
+              ].map((faq, index) => (
+                <div key={index} className="bg-slate-900/30 border border-premium-blue/20 rounded-lg sm:rounded-xl p-4 sm:p-6 backdrop-blur-md">
+                  <h3 className="text-sm sm:text-base text-white font-medium mb-2 sm:mb-3">{faq.q}</h3>
+                  <p className="text-xs sm:text-sm text-premium-silver/80 font-light leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Bottom CTA */}
+          <motion.div
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-center mt-16 sm:mt-20 bg-gradient-to-br from-slate-900/50 to-slate-800/30 border border-premium-blue/20 rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12 backdrop-blur-md mx-4 sm:mx-0"
+          >
+            <h2 className="text-2xl sm:text-3xl font-light text-white mb-4">
+              Ready to <span className="text-premium-blue">Transform</span> Your Marketing?
+            </h2>
+            <p className="text-sm sm:text-base text-premium-silver font-light mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
+              Join hundreds of businesses that have accelerated their growth with our AI-powered marketing solutions. 
+              Get started today with a custom consultation.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+              <motion.button
+                className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-premium-blue/80 to-premium-purple/80 border border-premium-blue/50 text-white font-light text-sm sm:text-base tracking-wide backdrop-blur-md overflow-hidden transition-all duration-700 hover:border-premium-blue/70 hover:shadow-lg hover:shadow-premium-blue/20 w-full sm:w-auto"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-premium-blue/20 to-premium-purple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <span className="relative z-10 flex items-center gap-2">
+                  Get Free Consultation
+                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </motion.button>
+              
+              <motion.button
+                className="group px-6 sm:px-8 py-3 sm:py-4 border border-premium-blue/50 text-premium-blue font-light text-sm sm:text-base tracking-wide backdrop-blur-md hover:bg-premium-blue/10 transition-all duration-300 w-full sm:w-auto"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                View Case Studies
+              </motion.button>
+            </div>
+
+            {/* Trust Badges */}
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-premium-blue/20">
+              <div className="flex items-center gap-2 text-premium-silver/60">
+                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-xs sm:text-sm">SSL Secured</span>
+              </div>
+              <div className="flex items-center gap-2 text-premium-silver/60">
+                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-xs sm:text-sm">Money Back Guarantee</span>
+              </div>
+              <div className="flex items-center gap-2 text-premium-silver/60">
+                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                </svg>
+                <span className="text-xs sm:text-sm">24/7 Support</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  )
+}
