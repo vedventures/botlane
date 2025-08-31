@@ -3,9 +3,17 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import Navbar from './Navbar'
+import TypingEffect from './TypingEffect'
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  
+  // Hero phrases for typing effect - optimized for mobile single line
+  const heroPhases = [
+    "Smart Marketing Tech",
+    "AI Growth Systems", 
+    "Revenue Automation"
+  ]
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -47,28 +55,63 @@ const HeroSection = () => {
       {/* Animated Background Grid */}
       <div className="absolute inset-0 cyber-grid opacity-15" />
       
+      {/* Subtle Noise Texture */}
+      <div className="absolute inset-0 opacity-[0.015]" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+      }} />
+      
       {/* Subtle Overlay */}
       <div className="absolute inset-0 bg-subtle-overlay opacity-40" />
       
       {/* Elegant Floating Elements */}
       <div className="absolute inset-0">
-        {[...Array(8)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-premium-blue/20 rounded-full blur-sm"
+            className={`absolute rounded-full blur-sm ${
+              i % 3 === 0 ? 'w-1 h-1 bg-premium-blue/15' :
+              i % 3 === 1 ? 'w-2 h-2 bg-premium-purple/10' :
+              'w-1.5 h-1.5 bg-white/5'
+            }`}
             style={{
-              left: `${20 + Math.random() * 60}%`,
-              top: `${20 + Math.random() * 60}%`,
+              left: `${15 + Math.random() * 70}%`,
+              top: `${15 + Math.random() * 70}%`,
             }}
             animate={{
-              y: [0, -15, 0],
-              opacity: [0.2, 0.6, 0.2],
-              scale: [1, 1.2, 1],
+              y: [0, -20 - Math.random() * 10, 0],
+              x: [0, Math.random() * 10 - 5, 0],
+              opacity: [0.1, 0.4 + Math.random() * 0.3, 0.1],
+              scale: [1, 1.1 + Math.random() * 0.3, 1],
             }}
             transition={{
-              duration: 4 + Math.random() * 2,
+              duration: 5 + Math.random() * 3,
               repeat: Infinity,
-              delay: Math.random() * 3,
+              delay: Math.random() * 4,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+      </div>
+      
+      {/* Subtle Depth Lines */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(3)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute h-px bg-gradient-to-r from-transparent via-premium-blue/8 to-transparent"
+            style={{
+              top: `${30 + i * 20}%`,
+              left: '-20%',
+              right: '-20%',
+            }}
+            animate={{
+              opacity: [0, 0.3, 0],
+              scaleX: [0.8, 1.2, 0.8],
+            }}
+            transition={{
+              duration: 8 + i * 2,
+              repeat: Infinity,
+              delay: i * 2,
             }}
           />
         ))}
@@ -97,19 +140,27 @@ const HeroSection = () => {
       >
         {/* Company Name */}
         <motion.div variants={itemVariants} className="mb-6">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-tight">
-            <span className="text-white">Intelligent </span>
-            <span className="bg-premium-gradient bg-clip-text text-transparent font-medium animate-glow">Marketing </span>
-            <span className="text-premium-silver">Infrastructure</span>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light tracking-tight leading-tight min-h-[1.2em]">
+            <TypingEffect 
+              phrases={heroPhases}
+              typingSpeed={80}
+              deletingSpeed={40}
+              pauseDuration={3000}
+              enableSound={true}
+              className=""
+            />
           </h1>
           <div className="h-px w-24 sm:w-32 bg-gradient-to-r from-transparent via-premium-blue to-transparent mx-auto mt-4 sm:mt-6" />
         </motion.div>
 
         {/* Tagline */}
         <motion.div variants={itemVariants} className="mb-6 sm:mb-8">
-          <p className="text-lg sm:text-xl md:text-2xl text-premium-platinum font-light tracking-wide leading-relaxed">
-            AI-Native Marketing That Scales
-          </p>
+          <div className="relative">
+            <p className="text-lg sm:text-xl md:text-2xl text-premium-platinum font-light tracking-wide leading-relaxed">
+              AI-Native Marketing That Scales
+            </p>
+            <div className="absolute -top-1 -right-2 w-2 h-2 bg-premium-blue/40 rounded-full animate-pulse" />
+          </div>
           <p className="text-base sm:text-lg md:text-xl text-cool-gray font-light mt-2">
             Built for Scale, Designed for Growth
           </p>
@@ -117,10 +168,14 @@ const HeroSection = () => {
 
         {/* Main Description */}
         <motion.div variants={itemVariants} className="mb-8 sm:mb-10 md:mb-12">
-          <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed font-light px-2">
-            We architect sophisticated AI-driven marketing systems that transform 
-            how premium brands engage, convert, and scale their customer relationships.
-          </p>
+          <div className="relative max-w-2xl mx-auto">
+            <div className="absolute -left-4 top-0 w-px h-full bg-gradient-to-b from-transparent via-premium-blue/20 to-transparent" />
+            <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed font-light px-2">
+              We architect sophisticated AI-driven marketing systems that transform 
+              how premium brands engage, convert, and scale their customer relationships.
+            </p>
+            <div className="absolute -right-4 bottom-0 w-px h-full bg-gradient-to-t from-transparent via-premium-purple/20 to-transparent" />
+          </div>
         </motion.div>
 
         {/* CTA Buttons */}
@@ -158,8 +213,11 @@ const HeroSection = () => {
         {/* Refined Stats */}
         <motion.div 
           variants={itemVariants}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10 md:gap-12 max-w-3xl mx-auto px-4"
+          className="relative grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10 md:gap-12 max-w-3xl mx-auto px-4"
         >
+          {/* Subtle connecting lines between stats */}
+          <div className="hidden sm:block absolute top-1/2 left-1/3 w-1/3 h-px bg-gradient-to-r from-premium-blue/10 to-premium-purple/10" />
+          <div className="hidden sm:block absolute top-1/2 right-1/3 w-1/3 h-px bg-gradient-to-r from-premium-purple/10 to-premium-blue/10" />
           {[
             { number: '500%', label: 'Average ROI Increase', description: 'First-year performance' },
             { number: '48hrs', label: 'Implementation Time', description: 'From strategy to execution' },
@@ -167,18 +225,26 @@ const HeroSection = () => {
           ].map((stat, index) => (
             <motion.div 
               key={index} 
-              className="text-center group"
+              className="relative text-center group"
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="text-xl sm:text-2xl md:text-3xl font-light text-premium-blue mb-2 transition-all duration-300">
-                {stat.number}
-              </div>
-              <div className="text-premium-platinum text-xs sm:text-sm font-medium mb-1 tracking-wide">
-                {stat.label}
-              </div>
-              <div className="text-cool-gray text-xs">
-                {stat.description}
+              {/* Subtle glow effect on hover */}
+              <div className="absolute inset-0 bg-premium-blue/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+              
+              <div className="relative z-10">
+                <div className="text-xl sm:text-2xl md:text-3xl font-light text-premium-blue mb-2 transition-all duration-300 group-hover:text-premium-purple">
+                  {stat.number}
+                </div>
+                <div className="text-premium-platinum text-xs sm:text-sm font-medium mb-1 tracking-wide">
+                  {stat.label}
+                </div>
+                <div className="text-cool-gray text-xs">
+                  {stat.description}
+                </div>
+                
+                {/* Micro indicator */}
+                <div className="w-1 h-1 bg-premium-blue/30 rounded-full mx-auto mt-2 group-hover:bg-premium-purple/50 transition-colors duration-300" />
               </div>
             </motion.div>
           ))}
@@ -187,6 +253,23 @@ const HeroSection = () => {
 
       {/* Bottom Gradient Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-dark-bg to-transparent" />
+      
+      {/* Subtle Brand Watermark */}
+      <div className="absolute bottom-8 right-8 opacity-5">
+        <div className="text-xs font-light text-premium-blue tracking-widest transform rotate-90 origin-center">
+          BOTLANE
+        </div>
+      </div>
+      
+      {/* Professional Corner Accents */}
+      <div className="absolute top-0 left-0 w-20 h-20">
+        <div className="absolute top-4 left-4 w-8 h-px bg-gradient-to-r from-premium-blue/20 to-transparent" />
+        <div className="absolute top-4 left-4 w-px h-8 bg-gradient-to-b from-premium-blue/20 to-transparent" />
+      </div>
+      <div className="absolute top-0 right-0 w-20 h-20">
+        <div className="absolute top-4 right-4 w-8 h-px bg-gradient-to-l from-premium-purple/20 to-transparent" />
+        <div className="absolute top-4 right-4 w-px h-8 bg-gradient-to-b from-premium-purple/20 to-transparent" />
+      </div>
     </section>
   )
 }
