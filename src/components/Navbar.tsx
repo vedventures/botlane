@@ -13,9 +13,9 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', href: '/' },
     { name: 'Shop', href: '/shop' },
-    { name: 'Services', href: '/#services', hasMegaMenu: true },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Services', href: '/services', hasDropdown: true, hasMegaMenu: true },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' }
   ]
 
   const serviceStacks = [
