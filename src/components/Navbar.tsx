@@ -197,27 +197,93 @@ const Navbar = () => {
         </div>
       </motion.div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <motion.div
         initial={false}
-        animate={{ height: isMenuOpen ? 'auto' : 0, opacity: isMenuOpen ? 1 : 0 }}
+        animate={{ 
+          opacity: isMenuOpen ? 1 : 0,
+          pointerEvents: isMenuOpen ? 'auto' : 'none'
+        }}
         transition={{ duration: 0.3 }}
-        className="md:hidden overflow-hidden bg-dark-surface/95 backdrop-blur-md rounded-lg mt-4 mx-4"
+        className="fixed inset-0 z-40 md:hidden"
+        onClick={() => setIsMenuOpen(false)}
       >
-        <div className="px-6 py-4 space-y-4">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="block text-gray-300 hover:text-premium-blue transition-colors duration-300 font-medium py-2"
+        {/* Blur Backdrop */}
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+      </motion.div>
+
+      {/* Mobile Menu Sidebar */}
+      <motion.div
+        initial={false}
+        animate={{ 
+          x: isMenuOpen ? 0 : '100%'
+        }}
+        transition={{ 
+          type: "spring",
+          stiffness: 300,
+          damping: 30,
+          duration: 0.4
+        }}
+        className="fixed top-0 right-0 h-full w-2/3 max-w-sm bg-slate-900/95 backdrop-blur-md border-l border-premium-blue/20 shadow-2xl z-50 md:hidden"
+      >
+        <div className="flex flex-col h-full">
+          {/* Header */}
+          <div className="flex items-center justify-between p-6 border-b border-slate-800/50">
+            <Image 
+              src="/botlogo.svg" 
+              alt="BotLane Logo" 
+              width={32}
+              height={32}
+              className="h-8 w-auto"
+            />
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="p-2 text-gray-300 hover:text-white transition-colors duration-200"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Navigation Links */}
+          <div className="flex-1 px-6 py-8 space-y-6">
+            {navItems.map((item, index) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ 
+                  opacity: isMenuOpen ? 1 : 0,
+                  x: isMenuOpen ? 0 : 20
+                }}
+                transition={{ delay: index * 0.1 + 0.2 }}
+              >
+                <Link
+                  href={item.href}
+                  className="block text-lg text-gray-300 hover:text-premium-blue transition-colors duration-300 font-medium py-3 border-b border-slate-800/30"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <div className="p-6 border-t border-slate-800/50">
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ 
+                opacity: isMenuOpen ? 1 : 0,
+                y: isMenuOpen ? 0 : 20
+              }}
+              transition={{ delay: 0.4 }}
+              className="w-full px-6 py-3 bg-gradient-to-r from-premium-blue to-premium-purple border border-premium-blue/50 text-white font-medium rounded-lg hover:border-premium-blue/70 transition-all duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
-              {item.name}
-            </Link>
-          ))}
-          <button className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-premium-blue to-premium-purple border border-premium-blue/50 text-white font-medium rounded-lg hover:border-premium-blue/70 transition-all duration-300">
-            Get Started
-          </button>
+              Get Started
+            </motion.button>
+          </div>
         </div>
       </motion.div>
     </motion.nav>
