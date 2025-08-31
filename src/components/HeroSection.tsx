@@ -126,12 +126,11 @@ const HeroSection = () => {
         {/* CTA Buttons */}
         <motion.div variants={itemVariants} className="flex flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-center mb-12 sm:mb-14 md:mb-16">
           <motion.button
-            className="group relative w-full sm:w-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-3 sm:py-4 md:py-5 bg-gradient-to-r from-slate-900/80 to-slate-800/80 border border-slate-700/50 text-white font-light text-xs sm:text-sm md:text-base tracking-wide backdrop-blur-md overflow-hidden transition-all duration-700 hover:border-slate-600/70 hover:shadow-lg hover:shadow-slate-900/20"
-            whileHover={{ scale: 1.01, y: -1 }}
-            whileTap={{ scale: 0.99 }}
+            className="group relative w-full sm:w-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-3 sm:py-4 md:py-5 bg-gradient-to-r from-premium-blue to-premium-purple border border-premium-blue/50 text-white font-medium text-xs sm:text-sm md:text-base tracking-wide rounded-lg hover:border-premium-blue/70 transition-all duration-300"
+            whileHover={{ scale: 1.02, y: -1 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-800/20 to-slate-700/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <span className="relative z-10 flex items-center gap-1 sm:gap-2 whitespace-nowrap">
+            <span className="flex items-center gap-1 sm:gap-2 whitespace-nowrap">
               <span className="hidden sm:inline">Schedule Consultation</span>
               <span className="sm:hidden">Schedule</span>
               <svg className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
