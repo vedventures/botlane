@@ -7,7 +7,6 @@ import Testimonials from '@/components/Testimonials'
 import Pricing from '@/components/Pricing'
 import FAQs from '@/components/FAQs'
 import FinalCTA from '@/components/FinalCTA'
-import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
       <Pricing />
       <FAQs />
       <FinalCTA />
-      <Footer />
     </main>
   )
 }

@@ -61,17 +61,11 @@ const Navbar = () => {
 
         {/* CTA Button - Hidden on mobile, visible on desktop */}
         <motion.button
-          className="hidden md:block group relative px-8 py-3 bg-gradient-to-r from-slate-900/80 to-slate-800/80 border border-slate-700/50 text-white font-light text-sm tracking-wide backdrop-blur-md overflow-hidden transition-all duration-700 hover:border-slate-600/70 hover:shadow-lg hover:shadow-slate-900/20"
-          whileHover={{ scale: 1.01, y: -1 }}
-          whileTap={{ scale: 0.99 }}
+          className="hidden md:block px-6 py-3 bg-gradient-to-r from-premium-blue to-premium-purple border border-premium-blue/50 text-white font-medium rounded-lg hover:border-premium-blue/70 transition-all duration-300 text-sm whitespace-nowrap"
+          whileHover={{ scale: 1.02, y: -1 }}
+          whileTap={{ scale: 0.98 }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/20 to-slate-700/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-          <span className="relative z-10 flex items-center gap-2">
-            Get Started
-            <svg className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </span>
+          Get Started
         </motion.button>
 
         {/* Mobile Menu Button */}
@@ -106,7 +100,7 @@ const Navbar = () => {
               {item.name}
             </Link>
           ))}
-          <button className="w-full mt-4 px-6 py-3 bg-premium-blue/10 border border-premium-blue/30 text-premium-blue font-medium rounded-sm backdrop-blur-sm transition-all duration-300 hover:bg-premium-blue hover:text-dark-bg">
+          <button className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-premium-blue to-premium-purple border border-premium-blue/50 text-white font-medium rounded-lg hover:border-premium-blue/70 transition-all duration-300">
             Get Started
           </button>
         </div>
