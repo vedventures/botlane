@@ -116,6 +116,17 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12">
             {/* Brand Section */}
             <motion.div variants={itemVariants} className="lg:col-span-2">
+              {/* Logo */}
+              <div className="mb-6">
+                <Image 
+                  src="/botlogo.svg" 
+                  alt="BotLane Logo" 
+                  width={48}
+                  height={48}
+                  className="h-12 w-auto"
+                />
+              </div>
+              
               <p className="text-sm sm:text-base text-premium-silver font-light leading-relaxed mb-6 max-w-sm">
                 Building intelligent marketing infrastructure that scales automatically and delivers measurable results for forward-thinking companies.
               </p>
