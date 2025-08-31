@@ -106,73 +106,42 @@ const ServicesOverview = () => {
               className="group relative h-full"
             >
               <motion.div
-                className={`relative h-full p-6 sm:p-8 bg-gradient-to-br ${service.gradient} border border-premium-blue/20 backdrop-blur-sm transition-all duration-700 hover:border-premium-blue/40 hover:bg-opacity-80 overflow-hidden flex flex-col`}
-                whileHover={{ 
-                  y: -6, 
-                  scale: 1.02,
-                  transition: { type: "spring", stiffness: 300, damping: 20 }
-                }}
+                className="relative h-full bg-gradient-to-br from-slate-900/50 to-slate-800/30 backdrop-blur-md border border-premium-blue/20 rounded-2xl p-6 sm:p-8 hover:border-premium-blue/40 transition-all duration-500 hover:shadow-lg hover:shadow-premium-blue/10 flex flex-col"
+                whileHover={{ y: -8 }}
               >
-                {/* Animated Background */}
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-br from-premium-blue/5 via-transparent to-premium-purple/5 opacity-0 group-hover:opacity-100"
-                  initial={{ scale: 0.8 }}
-                  whileHover={{ 
-                    scale: 1.1,
-                    transition: { duration: 0.6, ease: "easeOut" }
-                  }}
-                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-premium-blue/5 to-premium-purple/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10 flex flex-col h-full">
+                  {/* Service Name & Subtitle */}
+                  <div className="mb-4">
+                    <h3 className="text-xl sm:text-2xl font-medium text-white mb-2 group-hover:text-premium-blue transition-colors duration-300">
+                      {service.name}
+                    </h3>
+                    <p className="text-premium-blue/80 font-light text-sm tracking-wide">
+                      {service.subtitle}
+                    </p>
+                  </div>
 
-                {/* Service Name */}
-                <motion.div 
-                  className="relative z-10 mb-3"
-                  whileHover={{ x: 2 }}
-                >
-                  <h3 className="text-xl sm:text-2xl font-medium text-white group-hover:text-premium-platinum transition-colors duration-300">
-                    {service.name}
-                  </h3>
-                  <p className="text-premium-blue font-light text-xs sm:text-sm tracking-wide">
-                    {service.subtitle}
+                  {/* Description */}
+                  <p className="text-premium-silver/80 font-light leading-relaxed mb-6 flex-grow text-sm sm:text-base">
+                    {service.description}
                   </p>
-                </motion.div>
 
-                {/* Description */}
-                <motion.p 
-                  className="relative z-10 text-sm sm:text-base text-cool-gray font-light leading-relaxed mb-4 sm:mb-6 group-hover:text-premium-silver transition-colors duration-300 flex-grow"
-                  whileHover={{ x: 4 }}
-                  transition={{ delay: 0.1 }}
-                >
-                  {service.description}
-                </motion.p>
-
-                {/* Features List */}
-                <motion.div 
-                  className="relative z-10 space-y-2 mt-auto"
-                  whileHover={{ x: 6 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center text-xs sm:text-sm">
-                      <div className="w-1.5 h-1.5 bg-premium-blue/60 rounded-full mr-3 group-hover:bg-premium-blue transition-colors duration-300" />
-                      <span className="text-premium-silver/80 group-hover:text-premium-silver transition-colors duration-300">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </motion.div>
-
-                {/* Hover Glow Effect */}
-                <motion.div 
-                  className="absolute inset-0 rounded-lg border border-premium-blue/0 group-hover:border-premium-blue/20"
-                  whileHover={{
-                    boxShadow: [
-                      "0 0 0 rgba(99, 102, 241, 0)",
-                      "0 0 30px rgba(99, 102, 241, 0.1)",
-                      "0 0 60px rgba(99, 102, 241, 0.05)"
-                    ],
-                    transition: { duration: 0.6 }
-                  }}
-                />
+                  {/* Features List */}
+                  <div className="space-y-3">
+                    {service.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-premium-blue mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-premium-silver/90 font-light text-sm">
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </motion.div>
             </motion.div>
           ))}
