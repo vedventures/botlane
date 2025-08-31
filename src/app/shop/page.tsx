@@ -29,73 +29,197 @@ export default function Shop() {
     }
   }
 
-  const categories = ['All', 'Audits', 'Automation', 'Content', 'Analytics', 'Consulting']
+  const categories = ['All', 'Digital Products', 'Templates', 'Courses', 'Tools', 'Guides', 'Services', 'Consulting']
 
   const products = [
+    // Digital Templates & Resources
     {
       id: 1,
+      name: "Marketing Funnel Templates Pack",
+      price: "$97",
+      originalPrice: "$197",
+      category: "Templates",
+      badge: "Best Seller",
+      type: "Digital Download",
+      description: "Complete collection of high-converting marketing funnel templates with drag-and-drop customization for any industry.",
+      features: ["50+ funnel templates", "Conversion-optimized designs", "Mobile responsive", "A/B test variations", "Industry-specific versions", "Lifetime updates"],
+      deliverables: "Instant download",
+      rating: 4.9,
+      reviews: 342,
+      format: "Figma, Sketch, PSD files"
+    },
+    {
+      id: 2,
+      name: "AI Marketing Prompts Library",
+      price: "$47",
+      originalPrice: "$97",
+      category: "Digital Products",
+      badge: "Hot",
+      type: "Digital Download",
+      description: "1000+ proven AI prompts for marketing copy, content creation, strategy development, and campaign optimization.",
+      features: ["1000+ marketing prompts", "ChatGPT & Claude optimized", "Category organized", "Copy-paste ready", "Regular updates", "Bonus prompt engineering guide"],
+      deliverables: "Instant download",
+      rating: 4.8,
+      reviews: 567,
+      format: "PDF, Notion template"
+    },
+    {
+      id: 3,
+      name: "Social Media Content Calendar",
+      price: "$67",
+      originalPrice: "$127",
+      category: "Templates",
+      badge: "Popular",
+      type: "Digital Download",
+      description: "12-month social media content calendar with 365 post ideas, templates, and scheduling strategies for maximum engagement.",
+      features: ["365 content ideas", "Platform-specific templates", "Hashtag research sheets", "Analytics tracking", "Content pillars guide", "Canva templates included"],
+      deliverables: "Instant download",
+      rating: 4.7,
+      reviews: 289,
+      format: "Excel, Google Sheets, Canva"
+    },
+    
+    // Online Courses
+    {
+      id: 4,
+      name: "AI Marketing Mastery Course",
+      price: "$497",
+      originalPrice: "$797",
+      category: "Courses",
+      badge: "Most Popular",
+      type: "Online Course",
+      description: "Complete 8-week course teaching you how to leverage AI for marketing automation, content creation, and growth optimization.",
+      features: ["8 weeks of content", "20+ video lessons", "AI tools masterclass", "Live Q&A sessions", "Private community access", "Certificate of completion"],
+      deliverables: "Lifetime access",
+      rating: 4.9,
+      reviews: 156,
+      format: "Video lessons + resources"
+    },
+    {
+      id: 5,
+      name: "Growth Hacking Bootcamp",
+      price: "$297",
+      originalPrice: "$497",
+      category: "Courses",
+      badge: "New",
+      type: "Online Course",
+      description: "Intensive 30-day bootcamp covering advanced growth hacking strategies, viral marketing techniques, and scaling frameworks.",
+      features: ["30-day curriculum", "Daily challenges", "Growth experiments", "Case study analysis", "Peer networking", "Bonus tool stack"],
+      deliverables: "30-day access + lifetime resources",
+      rating: 4.8,
+      reviews: 89,
+      format: "Video + interactive exercises"
+    },
+    
+    // Software Tools & Apps
+    {
+      id: 6,
+      name: "Marketing ROI Calculator Pro",
+      price: "$127",
+      originalPrice: "$197",
+      category: "Tools",
+      badge: "Essential",
+      type: "Software Tool",
+      description: "Advanced calculator tool for measuring marketing ROI, campaign performance, and budget allocation across multiple channels.",
+      features: ["Multi-channel tracking", "Real-time calculations", "Export reports", "Custom metrics", "Team collaboration", "API integrations"],
+      deliverables: "Instant access",
+      rating: 4.6,
+      reviews: 134,
+      format: "Web app + mobile"
+    },
+    {
+      id: 7,
+      name: "Conversion Optimization Toolkit",
+      price: "$197",
+      originalPrice: "$297",
+      category: "Tools",
+      badge: "Pro",
+      type: "Software Tool",
+      description: "Complete toolkit for A/B testing, heatmap analysis, and conversion rate optimization with built-in analytics dashboard.",
+      features: ["A/B testing suite", "Heatmap analytics", "User session recordings", "Conversion funnels", "Statistical significance", "Integration ready"],
+      deliverables: "Instant setup",
+      rating: 4.7,
+      reviews: 78,
+      format: "SaaS platform"
+    },
+    
+    // Comprehensive Guides & Ebooks
+    {
+      id: 8,
+      name: "Complete Marketing Automation Guide",
+      price: "$77",
+      originalPrice: "$147",
+      category: "Guides",
+      badge: "Comprehensive",
+      type: "Digital Guide",
+      description: "200-page comprehensive guide covering marketing automation strategies, tool comparisons, and implementation frameworks.",
+      features: ["200+ pages", "Step-by-step tutorials", "Tool comparisons", "Case studies", "Templates included", "Video walkthroughs"],
+      deliverables: "Instant download",
+      rating: 4.8,
+      reviews: 223,
+      format: "PDF + bonus videos"
+    },
+    {
+      id: 9,
+      name: "AI Content Creation Playbook",
+      price: "$87",
+      originalPrice: "$167",
+      category: "Guides",
+      badge: "Updated",
+      type: "Digital Guide",
+      description: "Ultimate playbook for creating high-converting content using AI tools, with prompts, workflows, and optimization strategies.",
+      features: ["150+ AI prompts", "Content workflows", "Tool recommendations", "Quality frameworks", "SEO optimization", "Brand voice training"],
+      deliverables: "Instant download",
+      rating: 4.9,
+      reviews: 187,
+      format: "PDF + Notion workspace"
+    },
+    
+    // Premium Services
+    {
+      id: 10,
       name: "AI Marketing Audit",
       price: "$497",
       originalPrice: "$697",
-      category: "Audits",
-      badge: "Most Popular",
+      category: "Services",
+      badge: "Professional",
+      type: "Service",
       description: "Comprehensive analysis of your current marketing infrastructure with AI-powered recommendations and actionable insights.",
       features: ["Complete funnel analysis", "AI optimization recommendations", "Growth strategy roadmap", "30-day implementation plan", "Competitor analysis", "ROI projections"],
       deliverables: "14-day delivery",
       rating: 4.9,
-      reviews: 127
+      reviews: 127,
+      format: "Custom report + consultation"
     },
     {
-      id: 2,
+      id: 11,
       name: "Marketing Automation Setup",
       price: "$1,997",
       originalPrice: "$2,497",
-      category: "Automation",
+      category: "Services",
       badge: "Enterprise",
+      type: "Service",
       description: "Full marketing automation system setup with AI-driven workflows, customer journey mapping, and advanced segmentation.",
       features: ["Email automation sequences", "Lead scoring system", "CRM integration", "Performance tracking dashboard", "A/B testing framework", "Multi-channel workflows"],
       deliverables: "21-day delivery",
       rating: 4.8,
-      reviews: 89
+      reviews: 89,
+      format: "Done-for-you service"
     },
     {
-      id: 3,
-      name: "AI Content Engine",
-      price: "$997",
-      originalPrice: "$1,297",
-      category: "Content",
-      badge: "Best Value",
-      description: "Automated content creation system powered by AI for consistent, high-converting marketing materials across all channels.",
-      features: ["Content calendar automation", "AI copywriting templates", "Brand voice training", "Multi-channel distribution", "SEO optimization", "Performance analytics"],
-      deliverables: "10-day delivery",
-      rating: 4.9,
-      reviews: 156
-    },
-    {
-      id: 4,
-      name: "Growth Analytics Dashboard",
-      price: "$697",
-      originalPrice: "$897",
-      category: "Analytics",
-      badge: "New",
-      description: "Custom analytics dashboard with real-time insights, predictive modeling, and automated reporting for data-driven decisions.",
-      features: ["Real-time data visualization", "Predictive analytics", "Custom KPI tracking", "Automated reports", "Integration with 50+ tools", "Mobile app access"],
-      deliverables: "7-day delivery",
-      rating: 4.7,
-      reviews: 73
-    },
-    {
-      id: 5,
+      id: 12,
       name: "Strategic Consulting Package",
       price: "$2,497",
       originalPrice: "$2,997",
       category: "Consulting",
       badge: "Premium",
+      type: "Consulting",
       description: "One-on-one strategic consulting with our senior marketing experts to develop a comprehensive growth strategy.",
       features: ["4 hours of 1:1 consulting", "Custom strategy development", "Market analysis", "Competitive positioning", "Implementation roadmap", "3-month follow-up"],
       deliverables: "Ongoing support",
       rating: 5.0,
-      reviews: 42
+      reviews: 42,
+      format: "Video calls + deliverables"
     },
     {
       id: 6,
@@ -260,6 +384,22 @@ export default function Shop() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <span className="text-xs sm:text-sm font-light">{product.deliverables}</span>
+                  </div>
+
+                  {/* Product Type & Format */}
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="flex items-center gap-2 px-3 py-1 bg-premium-blue/10 border border-premium-blue/20 rounded-full">
+                      <div className="w-2 h-2 bg-premium-blue rounded-full"></div>
+                      <span className="text-xs text-premium-blue font-light">{product.type}</span>
+                    </div>
+                    {product.format && (
+                      <div className="flex items-center gap-2 px-3 py-1 bg-slate-800/50 border border-slate-700/30 rounded-full">
+                        <svg className="w-3 h-3 text-premium-silver/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span className="text-xs text-premium-silver/70 font-light">{product.format}</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Features */}
