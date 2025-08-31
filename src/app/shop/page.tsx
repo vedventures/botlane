@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import Link from 'next/link'
 import Navbar from '../../components/Navbar'
 
 export default function Shop() {
@@ -34,7 +35,7 @@ export default function Shop() {
   const products = [
     // Digital Templates & Resources
     {
-      id: 1,
+      id: "marketing-funnel-templates",
       name: "Marketing Funnel Templates Pack",
       price: "$97",
       originalPrice: "$197",
@@ -49,7 +50,7 @@ export default function Shop() {
       format: "Figma, Sketch, PSD files"
     },
     {
-      id: 2,
+      id: "ai-marketing-prompts",
       name: "AI Marketing Prompts Library",
       price: "$47",
       originalPrice: "$97",
@@ -64,7 +65,7 @@ export default function Shop() {
       format: "PDF, Notion template"
     },
     {
-      id: 3,
+      id: "social-media-calendar",
       name: "Social Media Content Calendar",
       price: "$67",
       originalPrice: "$127",
@@ -81,7 +82,7 @@ export default function Shop() {
     
     // Online Courses
     {
-      id: 4,
+      id: "ai-marketing-course",
       name: "AI Marketing Mastery Course",
       price: "$497",
       originalPrice: "$797",
@@ -96,7 +97,7 @@ export default function Shop() {
       format: "Video lessons + resources"
     },
     {
-      id: 5,
+      id: "growth-hacking-bootcamp",
       name: "Growth Hacking Bootcamp",
       price: "$297",
       originalPrice: "$497",
@@ -113,7 +114,7 @@ export default function Shop() {
     
     // Software Tools & Apps
     {
-      id: 6,
+      id: "marketing-roi-calculator",
       name: "Marketing ROI Calculator Pro",
       price: "$127",
       originalPrice: "$197",
@@ -128,7 +129,7 @@ export default function Shop() {
       format: "Web app + mobile"
     },
     {
-      id: 7,
+      id: "conversion-toolkit",
       name: "Conversion Optimization Toolkit",
       price: "$197",
       originalPrice: "$297",
@@ -145,7 +146,7 @@ export default function Shop() {
     
     // Comprehensive Guides & Ebooks
     {
-      id: 8,
+      id: "marketing-automation-guide",
       name: "Complete Marketing Automation Guide",
       price: "$77",
       originalPrice: "$147",
@@ -160,7 +161,7 @@ export default function Shop() {
       format: "PDF + bonus videos"
     },
     {
-      id: 9,
+      id: "ai-content-playbook",
       name: "AI Content Creation Playbook",
       price: "$87",
       originalPrice: "$167",
@@ -177,7 +178,7 @@ export default function Shop() {
     
     // Premium Services
     {
-      id: 10,
+      id: "ai-marketing-audit",
       name: "AI Marketing Audit",
       price: "$497",
       originalPrice: "$697",
@@ -192,7 +193,7 @@ export default function Shop() {
       format: "Custom report + consultation"
     },
     {
-      id: 11,
+      id: "marketing-automation-setup",
       name: "Marketing Automation Setup",
       price: "$1,997",
       originalPrice: "$2,497",
@@ -207,7 +208,7 @@ export default function Shop() {
       format: "Done-for-you service"
     },
     {
-      id: 12,
+      id: "strategic-consulting",
       name: "Strategic Consulting Package",
       price: "$2,497",
       originalPrice: "$2,997",
@@ -222,7 +223,7 @@ export default function Shop() {
       format: "Video calls + deliverables"
     },
     {
-      id: 6,
+      id: "complete-marketing-stack",
       name: "Complete Marketing Stack",
       price: "$3,997",
       originalPrice: "$5,497",
@@ -334,12 +335,12 @@ export default function Shop() {
               <motion.div
                 key={product.id}
                 variants={itemVariants}
-                className="group relative bg-gradient-to-br from-slate-900/50 to-slate-800/30 backdrop-blur-md border border-premium-blue/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 hover:border-premium-blue/40 transition-all duration-500 hover:shadow-lg hover:shadow-premium-blue/10"
-                whileHover={{ y: -8 }}
+                className="group relative bg-gradient-to-br from-slate-800/40 to-slate-900/60 backdrop-blur-sm border border-premium-blue/10 hover:border-premium-blue/30 rounded-3xl p-6 sm:p-8 transition-all duration-700 hover:shadow-lg hover:shadow-premium-blue/10 overflow-visible flex flex-col h-full"
+                whileHover={{ y: -8, scale: 1.02 }}
               >
                 {/* Badge */}
                 {product.badge && (
-                  <div className="absolute -top-2 sm:-top-3 left-4 sm:left-6 px-2 sm:px-3 py-1 bg-premium-blue text-white text-xs font-medium rounded-full">
+                  <div className="absolute -top-2 sm:-top-3 left-4 sm:left-6 px-2 sm:px-3 py-1 bg-premium-blue text-white text-xs font-medium rounded-full z-10">
                     {product.badge}
                   </div>
                 )}
@@ -403,7 +404,7 @@ export default function Shop() {
                   </div>
 
                   {/* Features */}
-                  <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+                  <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8 flex-grow">
                     {product.features.slice(0, 4).map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start gap-3">
                         <svg className="w-5 h-5 text-premium-blue mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -419,20 +420,33 @@ export default function Shop() {
                     )}
                   </ul>
 
-                  {/* CTA Button */}
-                  <motion.button
-                    className="w-full group/btn relative px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-premium-blue/80 to-premium-purple/80 border border-premium-blue/50 text-white font-light text-xs sm:text-sm tracking-wide backdrop-blur-md overflow-hidden transition-all duration-700 hover:border-premium-blue/70 hover:shadow-lg hover:shadow-premium-blue/20"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-premium-blue/20 to-premium-purple/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-700" />
-                    <span className="relative z-10 flex items-center justify-center gap-2">
-                      Get Started Now
-                      <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </span>
-                  </motion.button>
+                  {/* Dynamic CTA Button */}
+                  <div className="mt-auto">
+                    {(() => {
+                      const priceValue = parseInt(product.price.replace(/[$,]/g, ''))
+                      const isHighValue = priceValue >= 1000
+                      const isService = product.type === 'Service' || product.type === 'Consulting'
+                      const shouldSchedule = isHighValue || isService
+                      
+                      return (
+                        <Link href={`/shop/${product.id}`}>
+                          <motion.button
+                            className="w-full group/btn relative px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-premium-blue/80 to-premium-purple/80 border border-premium-blue/50 text-white font-light text-xs sm:text-sm tracking-wide backdrop-blur-md overflow-hidden transition-all duration-700 hover:border-premium-blue/70 hover:shadow-lg hover:shadow-premium-blue/20 min-h-[48px] flex items-center justify-center"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-r from-premium-blue/20 to-premium-purple/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-700" />
+                            <span className="relative z-10 flex items-center justify-center gap-2 whitespace-nowrap">
+                              View Details
+                              <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                              </svg>
+                            </span>
+                          </motion.button>
+                        </Link>
+                      )
+                    })()}
+                  </div>
                 </div>
               </motion.div>
             ))}
