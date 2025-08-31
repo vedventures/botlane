@@ -7,6 +7,7 @@ import TypingEffect from './TypingEffect'
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [shouldPlaySound, setShouldPlaySound] = useState(true)
   
   // Hero phrases for typing effect - optimized for mobile single line
   const heroPhases = [
@@ -20,9 +21,26 @@ const HeroSection = () => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
 
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      // Stop sound when user scrolls more than 100px
+      if (scrollY > 100 && shouldPlaySound) {
+        setShouldPlaySound(false)
+      }
+      // Re-enable sound when back at top
+      if (scrollY <= 50 && !shouldPlaySound) {
+        setShouldPlaySound(true)
+      }
+    }
+
     window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [shouldPlaySound])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -146,7 +164,7 @@ const HeroSection = () => {
               typingSpeed={80}
               deletingSpeed={40}
               pauseDuration={3000}
-              enableSound={true}
+              enableSound={shouldPlaySound}
               className=""
             />
           </h1>

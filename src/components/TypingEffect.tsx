@@ -44,7 +44,7 @@ const TypingEffect = ({
     if (!enableSound) return
     
     try {
-      // Create a simple beep sound using Web Audio API
+      // Create a subtle, professional typing sound using Web Audio API
       const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
       const oscillator = audioContext.createOscillator()
       const gainNode = audioContext.createGain()
@@ -52,12 +52,13 @@ const TypingEffect = ({
       oscillator.connect(gainNode)
       gainNode.connect(audioContext.destination)
       
-      oscillator.frequency.setValueAtTime(800, audioContext.currentTime)
-      gainNode.gain.setValueAtTime(0.1, audioContext.currentTime)
-      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1)
+      // More subtle frequency and volume for professional feel
+      oscillator.frequency.setValueAtTime(600 + Math.random() * 200, audioContext.currentTime)
+      gainNode.gain.setValueAtTime(0.03, audioContext.currentTime) // Much quieter
+      gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.05)
       
       oscillator.start(audioContext.currentTime)
-      oscillator.stop(audioContext.currentTime + 0.1)
+      oscillator.stop(audioContext.currentTime + 0.05) // Shorter duration
     } catch (error) {
       // Fallback for browsers that don't support Web Audio API
       console.log('Audio not supported')
@@ -96,7 +97,7 @@ const TypingEffect = ({
     }, isDeleting ? deletingSpeed : typingSpeed)
 
     return () => clearTimeout(timer)
-  }, [currentText, isDeleting, isPaused, currentPhraseIndex, phrases, typingSpeed, deletingSpeed, pauseDuration, enableSound])
+  }, [currentText, isDeleting, isPaused, currentPhraseIndex, phrases, typingSpeed, deletingSpeed, pauseDuration, enableSound, playTypingSound])
 
   return (
     <span 
