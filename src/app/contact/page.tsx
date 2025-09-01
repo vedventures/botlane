@@ -1,9 +1,66 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 import Navbar from '../../components/Navbar'
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    projectType: '',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [submitMessage, setSubmitMessage] = useState('')
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setSubmitMessage(result.message)
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          company: '',
+          projectType: '',
+          message: ''
+        })
+      } else {
+        setSubmitStatus('error')
+        setSubmitMessage(result.error || 'Something went wrong. Please try again.')
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+      setSubmitMessage('Network error. Please check your connection and try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -162,7 +219,7 @@ export default function Contact() {
                 </p>
               </motion.div>
 
-              <motion.form variants={itemVariants} className="space-y-6">
+              <motion.form variants={itemVariants} className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-premium-silver font-light text-sm mb-2">
@@ -170,7 +227,11 @@ export default function Contact() {
                     </label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-premium-blue/30 text-white placeholder-premium-silver/50 focus:border-premium-blue/60 focus:outline-none transition-colors duration-300"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 bg-slate-800/50 border border-premium-blue/30 text-white placeholder-premium-silver/50 focus:border-premium-blue/60 focus:outline-none transition-colors duration-300 rounded-lg"
                       placeholder="John"
                     />
                   </div>
@@ -180,7 +241,11 @@ export default function Contact() {
                     </label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-premium-blue/30 text-white placeholder-premium-silver/50 focus:border-premium-blue/60 focus:outline-none transition-colors duration-300"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 bg-slate-800/50 border border-premium-blue/30 text-white placeholder-premium-silver/50 focus:border-premium-blue/60 focus:outline-none transition-colors duration-300 rounded-lg"
                       placeholder="Doe"
                     />
                   </div>
@@ -192,7 +257,11 @@ export default function Contact() {
                   </label>
                   <input
                     type="email"
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-premium-blue/30 text-white placeholder-premium-silver/50 focus:border-premium-blue/60 focus:outline-none transition-colors duration-300"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-slate-800/50 border border-premium-blue/30 text-white placeholder-premium-silver/50 focus:border-premium-blue/60 focus:outline-none transition-colors duration-300 rounded-lg"
                     placeholder="john@company.com"
                   />
                 </div>
@@ -203,7 +272,10 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-premium-blue/30 text-white placeholder-premium-silver/50 focus:border-premium-blue/60 focus:outline-none transition-colors duration-300"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-slate-800/50 border border-premium-blue/30 text-white placeholder-premium-silver/50 focus:border-premium-blue/60 focus:outline-none transition-colors duration-300 rounded-lg"
                     placeholder="Your Company"
                   />
                 </div>
@@ -212,7 +284,12 @@ export default function Contact() {
                   <label className="block text-premium-silver font-light text-sm mb-2">
                     Project Type
                   </label>
-                  <select className="w-full px-4 py-3 bg-slate-800/50 border border-premium-blue/30 text-white focus:border-premium-blue/60 focus:outline-none transition-colors duration-300">
+                  <select 
+                    name="projectType"
+                    value={formData.projectType}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-slate-800/50 border border-premium-blue/30 text-white focus:border-premium-blue/60 focus:outline-none transition-colors duration-300 rounded-lg"
+                  >
                     <option value="">Select a service</option>
                     <option value="marketing-audit">Marketing Audit</option>
                     <option value="automation-setup">Automation Setup</option>
@@ -227,26 +304,79 @@ export default function Contact() {
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-premium-blue/30 text-white placeholder-premium-silver/50 focus:border-premium-blue/60 focus:outline-none transition-colors duration-300 resize-none"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-slate-800/50 border border-premium-blue/30 text-white placeholder-premium-silver/50 focus:border-premium-blue/60 focus:outline-none transition-colors duration-300 resize-none rounded-lg"
                     placeholder="Tell us about your project goals and challenges..."
                   />
                 </div>
 
+                {/* Status Message */}
+                {submitStatus !== 'idle' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`p-4 rounded-lg border ${
+                      submitStatus === 'success' 
+                        ? 'bg-green-900/20 border-green-500/30 text-green-400'
+                        : 'bg-red-900/20 border-red-500/30 text-red-400'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2">
+                      {submitStatus === 'success' ? (
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      ) : (
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      )}
+                      <span className="text-sm font-medium">{submitMessage}</span>
+                    </div>
+                  </motion.div>
+                )}
+
                 <motion.button
                   type="submit"
-                  className="w-full group relative px-6 py-4 bg-gradient-to-r from-premium-blue/80 to-premium-purple/80 border border-premium-blue/50 text-white font-light tracking-wide backdrop-blur-md overflow-hidden transition-all duration-700 hover:border-premium-blue/70 hover:shadow-lg hover:shadow-premium-blue/20"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  disabled={isSubmitting}
+                  className={`w-full group relative px-6 py-4 border text-white font-light tracking-wide backdrop-blur-md overflow-hidden transition-all duration-700 rounded-lg ${
+                    isSubmitting 
+                      ? 'bg-slate-700/50 border-slate-600/50 cursor-not-allowed'
+                      : 'bg-gradient-to-r from-premium-blue/80 to-premium-purple/80 border-premium-blue/50 hover:border-premium-blue/70 hover:shadow-lg hover:shadow-premium-blue/20'
+                  }`}
+                  whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                  whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-premium-blue/20 to-premium-purple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   <span className="relative z-10 flex items-center justify-center gap-2">
-                    Send Message
-                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                    </svg>
+                    {isSubmitting ? (
+                      <>
+                        <svg className="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </svg>
+                      </>
+                    )}
                   </span>
                 </motion.button>
               </motion.form>
+              
+              {/* Form Instructions */}
+              <motion.div variants={itemVariants} className="mt-6 p-4 bg-slate-800/30 rounded-lg border border-premium-blue/10">
+                <p className="text-xs text-premium-silver/70 text-center">
+                  🔒 Your information is secure and will only be used to respond to your inquiry.
+                </p>
+              </motion.div>
             </motion.div>
           </div>
 

@@ -4,6 +4,23 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Link from 'next/link'
 import Navbar from '../../components/Navbar'
+import { 
+  AIPromptsImage, 
+  SocialCalendarImage, 
+  AICourseImage, 
+  GrowthBootcampImage, 
+  ROICalculatorImage, 
+  ConversionToolkitImage, 
+  AutomationGuideImage, 
+  ContentPlaybookImage 
+} from '../../components/ProductSVGs'
+import { 
+  MarketingAuditImage, 
+  AutomationSetupImage, 
+  StrategicConsultingImage, 
+  CompleteStackImage,
+  MarketingFunnelImage1
+} from '../../components/ProductSVGs2'
 
 export default function Shop() {
   const [selectedCategory, setSelectedCategory] = useState('All')
@@ -31,6 +48,23 @@ export default function Shop() {
   }
 
   const categories = ['All', 'Digital Products', 'Templates', 'Courses', 'Tools', 'Guides', 'Services', 'Consulting']
+
+  // Product image mapping for shop page
+  const shopProductImageMap: Record<string, () => JSX.Element> = {
+    "marketing-funnel-templates": MarketingFunnelImage1,
+    "ai-marketing-prompts": AIPromptsImage,
+    "social-media-calendar": SocialCalendarImage,
+    "ai-marketing-course": AICourseImage,
+    "growth-hacking-bootcamp": GrowthBootcampImage,
+    "marketing-roi-calculator": ROICalculatorImage,
+    "conversion-toolkit": ConversionToolkitImage,
+    "automation-guide": AutomationGuideImage,
+    "content-playbook": ContentPlaybookImage,
+    "marketing-audit": MarketingAuditImage,
+    "automation-setup": AutomationSetupImage,
+    "strategic-consulting": StrategicConsultingImage,
+    "complete-stack": CompleteStackImage
+  }
 
   const products = [
     // Digital Templates & Resources
@@ -349,6 +383,16 @@ export default function Shop() {
                 <div className="absolute inset-0 bg-gradient-to-br from-premium-blue/5 to-premium-purple/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="relative z-10">
+                  {/* Product Image */}
+                  <div className="mb-4 sm:mb-6 aspect-[4/3] bg-gradient-to-br from-slate-800/40 to-slate-900/60 rounded-2xl overflow-hidden border border-premium-blue/10">
+                    <div className="w-full h-full flex items-center justify-center p-4">
+                      {(() => {
+                        const ImageComponent = shopProductImageMap[product.id] || MarketingFunnelImage1
+                        return <ImageComponent />
+                      })()}
+                    </div>
+                  </div>
+
                   {/* Price Section */}
                   <div className="mb-3 sm:mb-4 flex items-baseline gap-2 sm:gap-3">
                     <span className="text-2xl sm:text-3xl lg:text-4xl font-light text-premium-blue">{product.price}</span>

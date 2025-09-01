@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@getbrevo/brevo": "^3.0.1",
     "autoprefixer": "^10.4.21",
     "framer-motion": "^11.3.8",
     "geist": "^1.4.2",

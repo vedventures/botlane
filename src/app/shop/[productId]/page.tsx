@@ -4,38 +4,62 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import Navbar from '../../../components/Navbar'
 import { MarketingFunnelImage1, MarketingFunnelImage2, MarketingFunnelImage3, MarketingFunnelImage4 } from '../../../components/ProductImages'
+import { 
+  AIPromptsImage, 
+  SocialCalendarImage, 
+  AICourseImage, 
+  GrowthBootcampImage, 
+  ROICalculatorImage, 
+  ConversionToolkitImage, 
+  AutomationGuideImage, 
+  ContentPlaybookImage 
+} from '../../../components/ProductSVGs'
+import { 
+  MarketingAuditImage, 
+  AutomationSetupImage, 
+  StrategicConsultingImage, 
+  CompleteStackImage 
+} from '../../../components/ProductSVGs2'
+
+// Product image mapping
+const productImageMap: Record<string, (() => JSX.Element)[]> = {
+  "marketing-funnel-templates": [MarketingFunnelImage1, MarketingFunnelImage2, MarketingFunnelImage3, MarketingFunnelImage4],
+  "ai-marketing-prompts": [AIPromptsImage, AIPromptsImage, AIPromptsImage, AIPromptsImage],
+  "social-media-calendar": [SocialCalendarImage, SocialCalendarImage, SocialCalendarImage, SocialCalendarImage],
+  "ai-marketing-course": [AICourseImage, AICourseImage, AICourseImage, AICourseImage],
+  "growth-hacking-bootcamp": [GrowthBootcampImage, GrowthBootcampImage, GrowthBootcampImage, GrowthBootcampImage],
+  "marketing-roi-calculator": [ROICalculatorImage, ROICalculatorImage, ROICalculatorImage, ROICalculatorImage],
+  "conversion-toolkit": [ConversionToolkitImage, ConversionToolkitImage, ConversionToolkitImage, ConversionToolkitImage],
+  "automation-guide": [AutomationGuideImage, AutomationGuideImage, AutomationGuideImage, AutomationGuideImage],
+  "content-playbook": [ContentPlaybookImage, ContentPlaybookImage, ContentPlaybookImage, ContentPlaybookImage],
+  "marketing-audit": [MarketingAuditImage, MarketingAuditImage, MarketingAuditImage, MarketingAuditImage],
+  "automation-setup": [AutomationSetupImage, AutomationSetupImage, AutomationSetupImage, AutomationSetupImage],
+  "strategic-consulting": [StrategicConsultingImage, StrategicConsultingImage, StrategicConsultingImage, StrategicConsultingImage],
+  "complete-stack": [CompleteStackImage, CompleteStackImage, CompleteStackImage, CompleteStackImage]
+}
 
 // Import the products data from the shop page
 const products = [
   {
-    id: 'marketing-funnel-templates',
-    name: 'Marketing Funnel Templates Pack',
-    price: '$297',
-    originalPrice: '$497',
+    id: "marketing-funnel-templates",
+    name: "Marketing Funnel Templates Pack",
+    price: "$97",
+    originalPrice: "$197",
+    category: "Templates",
+    badge: "Best Seller",
+    type: "Digital Download",
+    description: "Complete collection of high-converting marketing funnel templates with drag-and-drop customization for any industry.",
+    longDescription: "Transform your marketing campaigns with our comprehensive collection of professionally designed funnel templates. Each template has been crafted by conversion optimization experts and tested across multiple industries to ensure maximum performance. Perfect for agencies, marketers, and businesses looking to accelerate their funnel creation process.",
+    features: ["50+ funnel templates", "Conversion-optimized designs", "Mobile responsive", "A/B test variations", "Industry-specific versions", "Lifetime updates"],
+    deliverables: "Instant download",
     rating: 4.9,
-    reviews: 127,
-    badge: 'Best Seller',
-    type: 'Template',
-    format: 'Figma, Sketch, Adobe XD',
-    deliverables: 'Instant Download',
-    description: 'Complete collection of high-converting marketing funnel templates designed by conversion experts.',
-    longDescription: 'Transform your marketing campaigns with our comprehensive collection of professionally designed funnel templates. Each template has been crafted by conversion optimization experts and tested across multiple industries to ensure maximum performance. Perfect for agencies, marketers, and businesses looking to accelerate their funnel creation process.',
-    features: [
-      '25+ High-Converting Funnel Templates',
-      'Multi-Format Support (Figma, Sketch, Adobe XD)',
-      'Mobile-Responsive Designs',
-      'Conversion-Optimized Layouts',
-      'Industry-Specific Variations',
-      'Color Scheme Customizations',
-      'Typography Guidelines',
-      'A/B Testing Variations',
-      'Video Tutorial Included',
-      'Lifetime Updates'
-    ],
+    reviews: 342,
+    format: "Figma, Sketch, PSD files",
     specifications: {
-      'File Formats': 'Figma, Sketch, Adobe XD, PNG, SVG',
-      'Total Templates': '25+ Unique Designs',
+      'File Formats': 'Figma, Sketch, PSD, PNG, SVG',
+      'Total Templates': '50+ Unique Designs',
       'Industries Covered': 'SaaS, E-commerce, Lead Gen, Coaching',
       'Device Support': 'Desktop, Tablet, Mobile',
       'License': 'Commercial Use Allowed',
@@ -65,33 +89,23 @@ const products = [
     ]
   },
   {
-    id: 'ai-marketing-prompts',
-    name: 'AI Marketing Prompts Library',
-    price: '$127',
-    originalPrice: '$197',
+    id: "ai-marketing-prompts",
+    name: "AI Marketing Prompts Library",
+    price: "$47",
+    originalPrice: "$97",
+    category: "Digital Products",
+    badge: "Hot",
+    type: "Digital Download",
+    description: "1000+ proven AI prompts for marketing copy, content creation, strategy development, and campaign optimization.",
+    longDescription: "Unlock the power of AI in your marketing with our extensive library of proven prompts. From content creation to campaign strategy, these prompts have been tested and refined to deliver exceptional results across various marketing channels and industries.",
+    features: ["1000+ marketing prompts", "ChatGPT & Claude optimized", "Category organized", "Copy-paste ready", "Regular updates", "Bonus prompt engineering guide"],
+    deliverables: "Instant download",
     rating: 4.8,
-    reviews: 89,
-    badge: 'Hot',
-    type: 'Digital Product',
-    format: 'PDF, Notion Template',
-    deliverables: 'Instant Access',
-    description: 'Comprehensive library of AI prompts for marketing campaigns, content creation, and strategy development.',
-    longDescription: 'Unlock the power of AI in your marketing with our extensive library of proven prompts. From content creation to campaign strategy, these prompts have been tested and refined to deliver exceptional results across various marketing channels and industries.',
-    features: [
-      '500+ Marketing AI Prompts',
-      'Content Creation Templates',
-      'Campaign Strategy Prompts',
-      'Social Media Automation',
-      'Email Marketing Scripts',
-      'Ad Copy Generators',
-      'SEO Content Prompts',
-      'Brand Voice Development',
-      'Competitor Analysis Templates',
-      'Monthly Updates'
-    ],
+    reviews: 567,
+    format: "PDF, Notion template",
     specifications: {
-      'Total Prompts': '500+ Categorized Prompts',
-      'Categories': '12 Marketing Disciplines',
+      'Total Prompts': '1000+ Categorized Prompts',
+      'Categories': '15 Marketing Disciplines',
       'Format': 'PDF + Notion Template',
       'AI Platforms': 'ChatGPT, Claude, Gemini Compatible',
       'Updates': 'Monthly New Prompts',
@@ -108,6 +122,424 @@ const products = [
         role: 'Content Manager',
         company: 'Digital Dynamics',
         content: 'This prompt library has revolutionized our content creation process. We\'re producing 3x more content in half the time.',
+        rating: 5
+      }
+    ]
+  },
+  {
+    id: "social-media-calendar",
+    name: "Social Media Content Calendar",
+    price: "$67",
+    originalPrice: "$127",
+    category: "Templates",
+    badge: "Popular",
+    type: "Digital Download",
+    description: "12-month social media content calendar with 365 post ideas, templates, and scheduling strategies for maximum engagement.",
+    longDescription: "Never run out of content ideas again with our comprehensive 12-month social media calendar. Includes 365 unique post ideas, platform-specific templates, and proven scheduling strategies to maximize your social media engagement and growth.",
+    features: ["365 content ideas", "Platform-specific templates", "Hashtag research sheets", "Analytics tracking", "Content pillars guide", "Canva templates included"],
+    deliverables: "Instant download",
+    rating: 4.7,
+    reviews: 289,
+    format: "Excel, Google Sheets, Canva",
+    specifications: {
+      'Content Ideas': '365 Unique Posts',
+      'Platforms': 'Instagram, Facebook, LinkedIn, Twitter',
+      'Format': 'Excel, Google Sheets, Canva',
+      'Templates': '50+ Design Templates',
+      'License': 'Commercial Use Allowed',
+      'Updates': 'Quarterly Content Refreshes'
+    },
+    gallery: [
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400'
+    ],
+    testimonials: [
+      {
+        name: 'Alex Thompson',
+        role: 'Social Media Manager',
+        company: 'BrandBoost',
+        content: 'This calendar transformed our social media strategy. Engagement increased by 150% in just 2 months.',
+        rating: 5
+      }
+    ]
+  },
+  {
+    id: "ai-marketing-course",
+    name: "AI Marketing Mastery Course",
+    price: "$497",
+    originalPrice: "$797",
+    category: "Courses",
+    badge: "Most Popular",
+    type: "Online Course",
+    description: "Complete 8-week course teaching you how to leverage AI for marketing automation, content creation, and growth optimization.",
+    longDescription: "Master the future of marketing with our comprehensive AI Marketing course. Learn to leverage cutting-edge AI tools and strategies to automate your marketing processes, create compelling content at scale, and optimize your growth campaigns for maximum ROI.",
+    features: ["8 weeks of content", "20+ video lessons", "AI tools masterclass", "Live Q&A sessions", "Private community access", "Certificate of completion"],
+    deliverables: "Lifetime access",
+    rating: 4.9,
+    reviews: 156,
+    format: "Video lessons + resources",
+    specifications: {
+      'Duration': '8 Weeks',
+      'Video Content': '20+ HD Video Lessons',
+      'Resources': 'Templates, Worksheets, Tools',
+      'Community': 'Private Discord Server',
+      'Certificate': 'Completion Certificate',
+      'Access': 'Lifetime Access'
+    },
+    gallery: [
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400'
+    ],
+    testimonials: [
+      {
+        name: 'Jennifer Kim',
+        role: 'Marketing Director',
+        company: 'ScaleUp Solutions',
+        content: 'This course completely changed how we approach marketing. Our team is now 5x more efficient with AI tools.',
+        rating: 5
+      }
+    ]
+  },
+  {
+    id: "growth-hacking-bootcamp",
+    name: "Growth Hacking Bootcamp",
+    price: "$297",
+    originalPrice: "$497",
+    category: "Courses",
+    badge: "New",
+    type: "Online Course",
+    description: "Intensive 30-day bootcamp covering advanced growth hacking strategies, viral marketing techniques, and scaling frameworks.",
+    longDescription: "Accelerate your business growth with proven growth hacking strategies used by the world's fastest-growing companies. This intensive bootcamp covers everything from viral marketing techniques to advanced scaling frameworks.",
+    features: ["30-day curriculum", "Daily challenges", "Growth experiments", "Case study analysis", "Peer networking", "Bonus tool stack"],
+    deliverables: "30-day access + lifetime resources",
+    rating: 4.8,
+    reviews: 89,
+    format: "Video + interactive exercises",
+    specifications: {
+      'Duration': '30 Days',
+      'Daily Content': 'Video + Exercises',
+      'Experiments': '15+ Growth Experiments',
+      'Case Studies': '10+ Real Company Examples',
+      'Tools': 'Growth Hacking Tool Stack',
+      'Community': 'Peer Network Access'
+    },
+    gallery: [
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400'
+    ],
+    testimonials: [
+      {
+        name: 'David Park',
+        role: 'Startup Founder',
+        company: 'RapidGrow',
+        content: 'The growth experiments in this bootcamp helped us achieve 300% user growth in just 60 days.',
+        rating: 5
+      }
+    ]
+  },
+  {
+    id: "marketing-roi-calculator",
+    name: "Marketing ROI Calculator Pro",
+    price: "$127",
+    originalPrice: "$197",
+    category: "Tools",
+    badge: "Essential",
+    type: "Software Tool",
+    description: "Advanced calculator tool for measuring marketing ROI, campaign performance, and budget allocation across multiple channels.",
+    longDescription: "Make data-driven marketing decisions with our advanced ROI calculator. Track performance across multiple channels, optimize budget allocation, and measure the true impact of your marketing investments with precision.",
+    features: ["Multi-channel tracking", "Real-time calculations", "Export reports", "Custom metrics", "Team collaboration", "API integrations"],
+    deliverables: "Instant access",
+    rating: 4.6,
+    reviews: 134,
+    format: "Web app + mobile",
+    specifications: {
+      'Channels': 'All Major Marketing Channels',
+      'Reports': 'Custom & Automated Reports',
+      'Integration': 'API + Webhook Support',
+      'Team Size': 'Unlimited Users',
+      'Data Export': 'CSV, PDF, Excel',
+      'Support': '24/7 Technical Support'
+    },
+    gallery: [
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400'
+    ],
+    testimonials: [
+      {
+        name: 'Lisa Wang',
+        role: 'CMO',
+        company: 'MetricsMatter',
+        content: 'Finally, a tool that gives us clear visibility into our marketing ROI. Game-changer for budget planning.',
+        rating: 5
+      }
+    ]
+  },
+  {
+    id: "conversion-toolkit",
+    name: "Conversion Optimization Toolkit",
+    price: "$197",
+    originalPrice: "$297",
+    category: "Tools",
+    badge: "Pro",
+    type: "Software Tool",
+    description: "Complete toolkit for A/B testing, heatmap analysis, and conversion rate optimization with built-in analytics dashboard.",
+    longDescription: "Optimize your conversion rates with our comprehensive toolkit. Includes A/B testing suite, heatmap analytics, user session recordings, and advanced funnel analysis to maximize your website's performance.",
+    features: ["A/B testing suite", "Heatmap analytics", "User session recordings", "Conversion funnels", "Statistical significance", "Integration ready"],
+    deliverables: "Instant setup",
+    rating: 4.7,
+    reviews: 78,
+    format: "SaaS platform",
+    specifications: {
+      'Testing': 'Unlimited A/B Tests',
+      'Analytics': 'Real-time Heatmaps',
+      'Recordings': 'User Session Playback',
+      'Funnels': 'Multi-step Analysis',
+      'Integration': '50+ Platform Integrations',
+      'Support': 'Priority Support Included'
+    },
+    gallery: [
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400'
+    ],
+    testimonials: [
+      {
+        name: 'Tom Bradley',
+        role: 'Growth Manager',
+        company: 'ConvertMore',
+        content: 'This toolkit helped us increase our conversion rate by 67%. The insights are incredibly actionable.',
+        rating: 5
+      }
+    ]
+  },
+  {
+    id: "marketing-automation-guide",
+    name: "Complete Marketing Automation Guide",
+    price: "$77",
+    originalPrice: "$147",
+    category: "Guides",
+    badge: "Comprehensive",
+    type: "Digital Guide",
+    description: "200-page comprehensive guide covering marketing automation strategies, tool comparisons, and implementation frameworks.",
+    longDescription: "Master marketing automation with our comprehensive 200-page guide. Learn proven strategies, compare top tools, and get step-by-step implementation frameworks to automate your marketing processes effectively.",
+    features: ["200+ pages", "Step-by-step tutorials", "Tool comparisons", "Case studies", "Templates included", "Video walkthroughs"],
+    deliverables: "Instant download",
+    rating: 4.8,
+    reviews: 223,
+    format: "PDF + bonus videos",
+    specifications: {
+      'Pages': '200+ Detailed Pages',
+      'Chapters': '12 Comprehensive Chapters',
+      'Tools Covered': '25+ Marketing Automation Tools',
+      'Templates': '15+ Implementation Templates',
+      'Videos': '5+ Hours of Walkthroughs',
+      'Updates': 'Annual Guide Updates'
+    },
+    gallery: [
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400'
+    ],
+    testimonials: [
+      {
+        name: 'Rachel Green',
+        role: 'Marketing Automation Specialist',
+        company: 'AutoFlow',
+        content: 'The most comprehensive automation guide I\'ve ever read. Saved us months of trial and error.',
+        rating: 5
+      }
+    ]
+  },
+  {
+    id: "ai-content-playbook",
+    name: "AI Content Creation Playbook",
+    price: "$87",
+    originalPrice: "$167",
+    category: "Guides",
+    badge: "Updated",
+    type: "Digital Guide",
+    description: "Ultimate playbook for creating high-converting content using AI tools, with prompts, workflows, and optimization strategies.",
+    longDescription: "Create compelling content at scale with AI. This playbook includes proven workflows, optimization strategies, and 150+ prompts to help you produce high-quality content consistently across all marketing channels.",
+    features: ["150+ AI prompts", "Content workflows", "Tool recommendations", "Quality frameworks", "SEO optimization", "Brand voice training"],
+    deliverables: "Instant download",
+    rating: 4.9,
+    reviews: 187,
+    format: "PDF + Notion workspace",
+    specifications: {
+      'Prompts': '150+ Content Prompts',
+      'Workflows': '10+ Proven Workflows',
+      'Tools': '20+ AI Tool Reviews',
+      'Framework': 'Quality Assessment Framework',
+      'SEO': 'AI-Powered SEO Strategies',
+      'Bonus': 'Notion Workspace Template'
+    },
+    gallery: [
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400'
+    ],
+    testimonials: [
+      {
+        name: 'Marcus Johnson',
+        role: 'Content Director',
+        company: 'ContentScale',
+        content: 'This playbook 10x our content output while maintaining quality. The workflows are pure gold.',
+        rating: 5
+      }
+    ]
+  },
+  {
+    id: "ai-marketing-audit",
+    name: "AI Marketing Audit",
+    price: "$497",
+    originalPrice: "$697",
+    category: "Services",
+    badge: "Professional",
+    type: "Service",
+    description: "Comprehensive analysis of your current marketing infrastructure with AI-powered recommendations and actionable insights.",
+    longDescription: "Get a complete analysis of your marketing infrastructure with our AI-powered audit. Receive detailed recommendations, growth strategies, and implementation roadmaps to optimize your marketing performance.",
+    features: ["Complete funnel analysis", "AI optimization recommendations", "Growth strategy roadmap", "30-day implementation plan", "Competitor analysis", "ROI projections"],
+    deliverables: "14-day delivery",
+    rating: 4.9,
+    reviews: 127,
+    format: "Custom report + consultation",
+    specifications: {
+      'Analysis Depth': 'Complete Marketing Stack',
+      'Deliverables': 'Custom 50+ Page Report',
+      'Consultation': '2-Hour Strategy Call',
+      'Timeline': '14-Day Delivery',
+      'Follow-up': '30-Day Implementation Support',
+      'Guarantee': 'Satisfaction Guaranteed'
+    },
+    gallery: [
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400'
+    ],
+    testimonials: [
+      {
+        name: 'Amanda Foster',
+        role: 'CEO',
+        company: 'GrowthTech',
+        content: 'The audit revealed optimization opportunities we never knew existed. ROI improved by 200% in 3 months.',
+        rating: 5
+      }
+    ]
+  },
+  {
+    id: "marketing-automation-setup",
+    name: "Marketing Automation Setup",
+    price: "$1,997",
+    originalPrice: "$2,497",
+    category: "Services",
+    badge: "Enterprise",
+    type: "Service",
+    description: "Full marketing automation system setup with AI-driven workflows, customer journey mapping, and advanced segmentation.",
+    longDescription: "Get a complete marketing automation system built for your business. Our experts will set up AI-driven workflows, customer journey mapping, and advanced segmentation to maximize your marketing efficiency and results.",
+    features: ["Email automation sequences", "Lead scoring system", "CRM integration", "Performance tracking dashboard", "A/B testing framework", "Multi-channel workflows"],
+    deliverables: "21-day delivery",
+    rating: 4.8,
+    reviews: 89,
+    format: "Done-for-you service",
+    specifications: {
+      'Setup Time': '21-Day Implementation',
+      'Workflows': 'Custom AI-Driven Sequences',
+      'Integration': 'CRM + Marketing Tools',
+      'Training': '4 Hours of Team Training',
+      'Support': '90-Day Post-Launch Support',
+      'Optimization': 'Ongoing Performance Tuning'
+    },
+    gallery: [
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400'
+    ],
+    testimonials: [
+      {
+        name: 'Robert Chen',
+        role: 'VP Marketing',
+        company: 'TechScale',
+        content: 'The automation setup transformed our lead nurturing. We\'re now converting 40% more leads with less manual work.',
+        rating: 5
+      }
+    ]
+  },
+  {
+    id: "strategic-consulting",
+    name: "Strategic Consulting Package",
+    price: "$2,497",
+    originalPrice: "$2,997",
+    category: "Consulting",
+    badge: "Premium",
+    type: "Consulting",
+    description: "One-on-one strategic consulting with our senior marketing experts to develop a comprehensive growth strategy.",
+    longDescription: "Work directly with our senior marketing strategists to develop a comprehensive growth plan tailored to your business. Includes market analysis, competitive positioning, and a detailed implementation roadmap.",
+    features: ["4 hours of 1:1 consulting", "Custom strategy development", "Market analysis", "Competitive positioning", "Implementation roadmap", "3-month follow-up"],
+    deliverables: "Ongoing support",
+    rating: 5.0,
+    reviews: 42,
+    format: "Video calls + deliverables",
+    specifications: {
+      'Consulting Hours': '4 Hours of 1:1 Strategy',
+      'Deliverables': 'Custom Strategy Document',
+      'Analysis': 'Market + Competitor Research',
+      'Roadmap': '90-Day Implementation Plan',
+      'Follow-up': '3-Month Progress Reviews',
+      'Access': 'Direct Expert Communication'
+    },
+    gallery: [
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400'
+    ],
+    testimonials: [
+      {
+        name: 'Michael Torres',
+        role: 'Founder',
+        company: 'InnovateNow',
+        content: 'The strategic insights we gained were invaluable. Revenue increased 250% following their recommendations.',
+        rating: 5
+      }
+    ]
+  },
+  {
+    id: "complete-marketing-stack",
+    name: "Complete Marketing Stack",
+    price: "$3,997",
+    originalPrice: "$5,497",
+    category: "All",
+    badge: "Bundle",
+    type: "Service Bundle",
+    description: "Everything you need to build a world-class marketing operation. Includes audit, automation, content engine, and analytics.",
+    longDescription: "Get everything you need to build a world-class marketing operation. This comprehensive bundle includes our complete audit, automation setup, content creation system, and ongoing optimization support.",
+    features: ["All individual services", "Priority support", "Dedicated account manager", "Monthly optimization calls", "Custom integrations", "1-year maintenance"],
+    deliverables: "30-day delivery",
+    rating: 4.9,
+    reviews: 34,
+    format: "Complete service package",
+    specifications: {
+      'Services Included': 'All Premium Services',
+      'Account Manager': 'Dedicated Expert',
+      'Support': 'Priority 24/7 Support',
+      'Optimization': 'Monthly Strategy Calls',
+      'Maintenance': '1-Year Included',
+      'Custom Work': 'Tailored Integrations'
+    },
+    gallery: [
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400',
+      '/api/placeholder/600/400'
+    ],
+    testimonials: [
+      {
+        name: 'Patricia Williams',
+        role: 'CMO',
+        company: 'Enterprise Solutions',
+        content: 'The complete stack transformed our entire marketing operation. Best investment we\'ve made for growth.',
         rating: 5
       }
     ]
@@ -137,8 +569,14 @@ export default function ProductPage({ params }: ProductPageProps) {
 
   return (
     <div className="min-h-screen bg-dark-bg text-white">
+      <Navbar />
+      
+      {/* Background Elements */}
+      <div className="absolute inset-0 cyber-grid opacity-5" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-premium-blue/5 to-transparent" />
+      
       {/* Breadcrumb Navigation */}
-      <div className="max-w-7xl mx-auto px-6 pt-24 pb-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-8">
         <nav className="flex items-center gap-2 text-sm text-premium-silver/70">
           <Link href="/" className="hover:text-premium-blue transition-colors">Home</Link>
           <span>/</span>
@@ -161,19 +599,9 @@ export default function ProductPage({ params }: ProductPageProps) {
             <div className="relative aspect-[4/3] bg-gradient-to-br from-slate-800/40 to-slate-900/60 rounded-3xl overflow-hidden border border-premium-blue/10">
               <div className="w-full h-full flex items-center justify-center p-4">
                 {(() => {
-                  const imageId = product.gallery[selectedImage]
-                  switch (imageId) {
-                    case 'marketing-funnel-1':
-                      return <MarketingFunnelImage1 />
-                    case 'marketing-funnel-2':
-                      return <MarketingFunnelImage2 />
-                    case 'marketing-funnel-3':
-                      return <MarketingFunnelImage3 />
-                    case 'marketing-funnel-4':
-                      return <MarketingFunnelImage4 />
-                    default:
-                      return <MarketingFunnelImage1 />
-                  }
+                  const productImages = productImageMap[product.id] || [MarketingFunnelImage1, MarketingFunnelImage2, MarketingFunnelImage3, MarketingFunnelImage4]
+                  const ImageComponent = productImages[selectedImage] || productImages[0]
+                  return <ImageComponent />
                 })()}
               </div>
               {product.badge && (

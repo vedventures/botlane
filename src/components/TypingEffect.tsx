@@ -8,7 +8,6 @@ interface TypingEffectProps {
   deletingSpeed?: number
   pauseDuration?: number
   className?: string
-  enableSound?: boolean
 }
 
 const TypingEffect = ({ 
@@ -16,8 +15,7 @@ const TypingEffect = ({
   typingSpeed = 100, 
   deletingSpeed = 50, 
   pauseDuration = 2000,
-  className = "",
-  enableSound = false
+  className = ""
 }: TypingEffectProps) => {
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0)
   const [currentText, setCurrentText] = useState('')
@@ -39,31 +37,6 @@ const TypingEffect = ({
     }).join(' ')
   }
 
-  // Create typing sound effect
-  const playTypingSound = () => {
-    if (!enableSound) return
-    
-    try {
-      // Create a subtle, professional typing sound using Web Audio API
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
-      const oscillator = audioContext.createOscillator()
-      const gainNode = audioContext.createGain()
-      
-      oscillator.connect(gainNode)
-      gainNode.connect(audioContext.destination)
-      
-      // More subtle frequency and volume for professional feel
-      oscillator.frequency.setValueAtTime(600 + Math.random() * 200, audioContext.currentTime)
-      gainNode.gain.setValueAtTime(0.03, audioContext.currentTime) // Much quieter
-      gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.05)
-      
-      oscillator.start(audioContext.currentTime)
-      oscillator.stop(audioContext.currentTime + 0.05) // Shorter duration
-    } catch (error) {
-      // Fallback for browsers that don't support Web Audio API
-      console.log('Audio not supported')
-    }
-  }
 
   useEffect(() => {
     if (isPaused) {
@@ -92,12 +65,11 @@ const TypingEffect = ({
         setCurrentText(currentPhrase.substring(0, currentText.length - 1))
       } else {
         setCurrentText(currentPhrase.substring(0, currentText.length + 1))
-        playTypingSound()
       }
     }, isDeleting ? deletingSpeed : typingSpeed)
 
     return () => clearTimeout(timer)
-  }, [currentText, isDeleting, isPaused, currentPhraseIndex, phrases, typingSpeed, deletingSpeed, pauseDuration, enableSound, playTypingSound])
+  }, [currentText, isDeleting, isPaused, currentPhraseIndex, phrases, typingSpeed, deletingSpeed, pauseDuration])
 
   return (
     <span 
